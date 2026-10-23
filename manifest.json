@@ -1,0 +1,14 @@
+{
+  "name": "JEP y Sometimiento, explicados",
+  "short_name": "JEP y Sometimiento",
+  "description": "El debate de la JEP y la ley de sometimiento con las dos posturas y noticias del día. Vibras Positivas HM.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f2ea",
+  "theme_color": "#0f2a44",
+  "lang": "es-CO",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

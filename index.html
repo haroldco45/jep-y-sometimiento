@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>JEP y Sometimiento</title>
+<meta name="description" content="El debate de la JEP y la ley de sometimiento explicado para todos los colombianos. Las dos posturas, las cifras y las noticias del día. Vibras Positivas HM.">
+<meta name="theme-color" content="#0f2a44">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f2ea;--card:#ffffff;--ink:#16202b;--muted:#5d6b78;--line:#e2dccd;
+  --navy:#0f2a44;--gold:#c99a2e;--a:#1f5fa8;--a-soft:#e5eef9;--b:#b23a3a;--b-soft:#f8e7e5;--ok:#2e7d4f;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1620;--card:#162230;--ink:#e9eef3;--muted:#9fb0c0;--line:#25364a;
+    --navy:#0a1d31;--a-soft:#16304d;--b-soft:#3a1d1d;--a:#7fb3ef;--b:#ef8b8b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1620;--card:#162230;--ink:#e9eef3;--muted:#9fb0c0;--line:#25364a;
+  --navy:#0a1d31;--a-soft:#16304d;--b-soft:#3a1d1d;--a:#7fb3ef;--b:#ef8b8b;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+header{background:var(--navy);color:#fff;padding:22px 16px 18px;position:relative;overflow:hidden}
+header::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:18px solid var(--gold);opacity:.18}
+.brand{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:800}
+h1{font-family:Merriweather,serif;font-size:1.7rem;line-height:1.2;margin:.35rem 0 .4rem}
+.sub{opacity:.85;font-size:.95rem;margin:0}
+.stamp{margin-top:10px;font-size:.78rem;opacity:.75}
+nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);display:flex;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:0 0 auto;border:0;background:none;color:var(--muted);font:600 .9rem Inter,sans-serif;padding:13px 14px;border-bottom:3px solid transparent;cursor:pointer}
+nav button.on{color:var(--ink);border-bottom-color:var(--gold)}
+main{max-width:760px;margin:0 auto;padding:16px}
+section{display:none}
+section.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+h2{font-family:Merriweather,serif;font-size:1.3rem;margin:.6rem 0 .8rem}
+h3{font-size:1.02rem;margin:1.1rem 0 .4rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.note{border-left:4px solid var(--gold)}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{display:block;font:900 1.35rem Merriweather,serif;color:var(--navy)}
+:root[data-theme="dark"] .kpi b{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .kpi b{color:var(--gold)}}
+.kpi span{font-size:.82rem;color:var(--muted)}
+.vs{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:620px){.vs{grid-template-columns:1fr 1fr}}
+.side{border-radius:14px;padding:16px}
+.side.a{background:var(--a-soft);border:1px solid var(--a)}
+.side.b{background:var(--b-soft);border:1px solid var(--b)}
+.side h3{margin-top:0}
+.side.a h3{color:var(--a)}.side.b h3{color:var(--b)}
+ul{padding-left:1.15rem;margin:.3rem 0}
+li{margin:.35rem 0}
+.tl{border-left:3px solid var(--line);margin-left:6px;padding-left:16px}
+.tl div{position:relative;margin-bottom:14px}
+.tl div::before{content:"";position:absolute;left:-23px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--gold)}
+.tl small{color:var(--muted);font-weight:600}
+.tag{display:inline-block;font-size:.72rem;font-weight:800;padding:2px 8px;border-radius:99px;background:var(--line);color:var(--ink);margin-right:4px}
+.q{margin:12px 0}
+.q p{font-weight:600;margin:0 0 6px}
+.q button{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;cursor:pointer}
+.q button.ok{border-color:var(--ok);background:rgba(46,125,79,.12)}
+.q button.no{border-color:var(--b);background:var(--b-soft)}
+.q .why{font-size:.88rem;color:var(--muted);display:none}
+.news a{display:block;text-decoration:none;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line)}
+.news a:last-child{border-bottom:0}
+.news small{color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.chips button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 12px;font:600 .85rem Inter;cursor:pointer}
+.chips button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.src a{color:var(--a);word-break:break-word}
+.btn{display:inline-block;background:var(--gold);color:#1b1405;font-weight:800;border:0;border-radius:10px;padding:11px 16px;text-decoration:none;cursor:pointer;font-size:.95rem}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40px}
+#tema{position:absolute;right:12px;top:12px;z-index:2;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:99px;padding:6px 10px;cursor:pointer;font-size:.85rem}
+</style>
+</head>
+<body>
+<header>
+  <button id="tema" aria-label="Cambiar tema">◐</button>
+  <div class="brand">Vibras Positivas HM · App ciudadana</div>
+  <h1>JEP y Sometimiento, explicados</h1>
+  <p class="sub">El debate que tiene encendido al Congreso, contado con datos y con las dos posturas, para que usted saque sus propias conclusiones.</p>
+  <div class="stamp" id="stamp">Contenido verificado al 23 de octubre de 2026 · hora Colombia</div>
+</header>
+
+<nav id="tabs">
+  <button data-t="inicio" class="on">Inicio</button>
+  <button data-t="jep">La JEP</button>
+  <button data-t="sometimiento">Sometimiento</button>
+  <button data-t="posturas">Dos posturas</button>
+  <button data-t="linea">Línea de tiempo</button>
+  <button data-t="quiz">Pruébese</button>
+  <button data-t="noticias">Noticias hoy</button>
+  <button data-t="fuentes">Fuentes</button>
+</nav>
+
+<main>
+
+<!-- INICIO -->
+<section id="inicio" class="on">
+  <div class="card note">
+    <strong>¿Por qué esta app?</strong>
+    <p>Por redes circulan videos cortos de los debates del Senado con títulos como “tremenda peinada”. Esos clips muestran solo un lado. Aquí está el contexto completo: qué se está votando, quién propone qué y qué dicen los que están en contra.</p>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi"><b>2</b><span>debates calientes: el futuro de la JEP y la ley de sometimiento</span></div>
+    <div class="kpi"><b>$170.000 M</b><span>recorte a la JEP aprobado en primer debate del Presupuesto 2027</span></div>
+    <div class="kpi"><b>Mar. 2028</b><span>fecha de cierre de la JEP que propone Salvación Nacional</span></div>
+    <div class="kpi"><b>4 nov.</b><span>se vence la Ley 418 de orden público si no se renueva</span></div>
+  </div>
+
+  <h2>En 30 segundos</h2>
+  <div class="card">
+    <h3>1. La JEP</h3>
+    <p>Es el tribunal que nació del Acuerdo de Paz de 2016 para juzgar crímenes del conflicto, tanto de exguerrilleros de las FARC como de miembros de la Fuerza Pública. El senador Enrique Gómez (Salvación Nacional, partido del Gobierno) propone recortarle plata y cerrarla en marzo de 2028, sin prórroga.</p>
+    <h3>2. La ley de sometimiento</h3>
+    <p>Es la apuesta del gobierno de Abelardo de la Espriella para reemplazar la “Paz Total” del gobierno anterior. No hay negociación política: se ofrece a los grupos criminales entregarse a la justicia a cambio de rebajas de pena, con condiciones.</p>
+    <h3>3. ¿Quién está de cada lado?</h3>
+    <p>El oficialismo (Salvación Nacional y aliados) impulsa ambos proyectos. El Pacto Histórico, principal bancada de oposición, se opone. El Centro Democrático apoya el sometimiento pero ha tenido choques fuertes con Enrique Gómez.</p>
+  </div>
+  <a class="btn" href="#" data-go="posturas">Ver las dos posturas lado a lado →</a>
+</section>
+
+<!-- JEP -->
+<section id="jep">
+  <h2>La JEP: ¿recortar y cerrar?</h2>
+  <div class="card">
+    <h3>Qué es</h3>
+    <p>La Jurisdicción Especial para la Paz empezó a funcionar en marzo de 2018. Juzga a quienes cometieron crímenes graves en el conflicto armado. Quien cuenta la verdad y repara a las víctimas recibe sanciones especiales; quien no, se arriesga a penas de hasta 20 años.</p>
+    <h3>El plazo original</h3>
+    <p>La Constitución le dio 10 años para presentar acusaciones (hasta 2028) y hasta 5 años más para terminar sus casos, con posibilidad de prórroga. Ese “más tiempo” es lo que está en discusión.</p>
+  </div>
+
+  <div class="card">
+    <h3>Propuesta 1: el recorte de plata</h3>
+    <ul>
+      <li>La JEP pidió unos <b>$947.642 millones</b> para 2027; el proyecto de Presupuesto le asignó unos <b>$821.803 millones</b>.</li>
+      <li>En primer debate, las comisiones económicas aprobaron un recorte adicional de <b>$170.000 millones</b>.</li>
+      <li>Enrique Gómez sostiene que, aunque el Presupuesto no se aprobó en plenarias, se adoptará por decreto con el texto del primer debate, que incluye ese recorte.</li>
+      <li>Ojo: Gómez quedó <b>impedido</b> para votar el Presupuesto 2027 porque su hermano, Miguel Gómez, es el ministro de Hacienda.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Propuesta 2: cerrar la JEP en marzo de 2028</h3>
+    <ul>
+      <li>Acto legislativo radicado por Enrique Gómez el 23 de septiembre de 2026.</li>
+      <li>Fija un periodo máximo de 10 años, <b>sin prórroga</b>.</li>
+      <li>Los procesos que no estén terminados pasarían a la justicia ordinaria, con la Fiscalía asumiendo investigación y acusación.</li>
+      <li>El autor calcula que entre 2019 y 2026 la JEP recibió más de <b>4 billones</b> de pesos, y que cerrarla ahorraría unos $900.000 millones al año.</li>
+      <li>Aparte, el Centro Democrático (Rafael Nieto) impulsa que la Justicia Penal Militar revise los fallos de la JEP sobre militares.</li>
+    </ul>
+  </div>
+
+  <div class="card note">
+    <strong>Dato que sorprende</strong>
+    <p>El expresidente Juan Manuel Santos, firmante del Acuerdo de Paz, también dijo que la JEP debería terminar su trabajo en 2028 y no prorrogarse. La diferencia: Santos defiende lo que ha hecho el tribunal y le pide acelerar; Gómez cuestiona sus resultados de fondo.</p>
+  </div>
+</section>
+
+<!-- SOMETIMIENTO -->
+<section id="sometimiento">
+  <h2>La ley de sometimiento</h2>
+  <div class="card">
+    <h3>La ficha</h3>
+    <ul>
+      <li><b>Número:</b> Proyecto de Ley 433 de 2026 Cámara / 296 de 2026 Senado.</li>
+      <li><b>Radicada:</b> 13 de octubre de 2026, por los ministros Iván Cancino (Justicia) y Rodrigo Lara (Interior).</li>
+      <li><b>Trámite:</b> con mensaje de urgencia; primer debate en comisiones primeras conjuntas desde el 21 de octubre.</li>
+      <li><b>Base:</b> modifica y renueva la Ley 418 de 1997 (orden público), que vence el <b>4 de noviembre</b>.</li>
+      <li>Deroga los artículos de la Ley 2272 de 2022 que crearon la “Paz Total”.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Qué ofrece y qué exige</h3>
+    <ul>
+      <li>Rebajas de pena de hasta <b>50 %</b> para integrantes rasos y hasta <b>30 %</b> para cabecillas, si cumplen las condiciones.</li>
+      <li>Entrega total de bienes, sin que se les devuelva ningún porcentaje (el proyecto del gobierno anterior permitía quedarse hasta con el 12 %).</li>
+      <li>Contar la verdad, incluidos hechos de corrupción y vínculos con políticos.</li>
+      <li>Sin reconocimiento político, sin excarcelaciones y sin suspender extradiciones.</li>
+      <li>Puede ser individual o colectiva. Si es colectiva: primero una etapa con el Gobierno (solicitud, hoja de ruta, verificación) y después los jueces.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>¿A cuánta gente le aplicaría?</h3>
+    <p>Según la ponencia, cerca de <b>28.800</b> personas armadas integran hoy las estructuras que podrían acogerse. Esa cifra casi se duplicó frente a los 15.120 de diciembre de 2022.</p>
+  </div>
+
+  <div class="card note">
+    <strong>Lo que pasó el 21 de octubre</strong>
+    <p>Las comisiones primeras negaron la ponencia de archivo del Pacto Histórico y el debate siguió con la ponencia positiva del oficialismo. Al senador Iván Cepeda le aprobaron un impedimento, así que no participa ni vota en este proyecto.</p>
+  </div>
+</section>
+
+<!-- POSTURAS -->
+<section id="posturas">
+  <h2>Las dos posturas, lado a lado</h2>
+  <p style="color:var(--muted)">Aquí no le decimos quién tiene la razón. Cada lado presenta su mejor argumento.</p>
+
+  <h3>Sobre la JEP</h3>
+  <div class="vs">
+    <div class="side a">
+      <h3>A favor del recorte y del cierre en 2028</h3>
+      <ul>
+        <li>El país tiene un déficit fiscal cercano al 9,8 % del PIB y todas las entidades deben apretarse.</li>
+        <li>Más de 4 billones invertidos con pocas condenas, según sus críticos.</li>
+        <li>La justicia ordinaria tiene unos 2,2 millones de procesos represados y le falta plata.</li>
+        <li>Un tribunal transitorio no debería volverse permanente.</li>
+        <li>Sus críticos dicen que favorece a exguerrilleros con penas que no son cárcel.</li>
+      </ul>
+    </div>
+    <div class="side b">
+      <h3>En contra del recorte y del cierre</h3>
+      <ul>
+        <li>El presidente de la JEP, Alejandro Ramelli, advirtió que con el recorte el tribunal quedaría inoperante.</li>
+        <li>Muchos casos van llegando justo ahora a la etapa de juicio; cortarlos afecta a las víctimas.</li>
+        <li>La JEP es la columna del Acuerdo de Paz, que tiene compromisos internacionales.</li>
+        <li>También juzga a militares; pasarlos a la justicia ordinaria cambia sus garantías.</li>
+        <li>El Pacto Histórico lo ve como un desmonte del Acuerdo de Paz.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Sobre la ley de sometimiento</h3>
+  <div class="vs">
+    <div class="side a">
+      <h3>A favor</h3>
+      <ul>
+        <li>Acaba con la “Paz Total”, que según el Gobierno dejó crecer los grupos armados.</li>
+        <li>No hay mesa de negociación ni estatus político: el Estado pone las condiciones.</li>
+        <li>Entrega total de bienes y obligación de contar la verdad, también la de los políticos.</li>
+        <li>Mientras tanto, la Fuerza Pública sigue persiguiendo a quien no se someta.</li>
+        <li>Sin la ley, el Estado pierde herramientas de orden público que usa desde 1997.</li>
+      </ul>
+    </div>
+    <div class="side b">
+      <h3>En contra</h3>
+      <ul>
+        <li>El Pacto Histórico presentó ponencia de archivo; varios opositores dicen que las rebajas superan las de otras leyes de sometimiento y procesos de paz.</li>
+        <li>Advierten que se tramita a las carreras, con mensaje de urgencia.</li>
+        <li>Analistas señalan que sin incentivos políticos los grandes jefes no se entregarían; solo bandas urbanas que ya obtienen rebajas por preacuerdos.</li>
+        <li>Temen que deje sin salida los procesos de paz que estaban en curso.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card note" style="margin-top:14px">
+    <strong>Hasta en la derecha hay pelea</strong>
+    <p>El Centro Democrático apoya el sometimiento, pero ha chocado con Enrique Gómez y anunció que no hará alianzas con Salvación Nacional. El senador Rafael Nieto llegó a decir que a Gómez no valía la pena responderle.</p>
+  </div>
+</section>
+
+<!-- LINEA -->
+<section id="linea">
+  <h2>Línea de tiempo</h2>
+  <div class="tl">
+    <div><small>Marzo 2018</small><br>La JEP empieza a funcionar.</div>
+    <div><small>Noviembre 2022</small><br>La Ley 2272 renueva la Ley 418 por 4 años y crea la “Paz Total” del gobierno Petro.</div>
+    <div><small>8 de marzo 2026</small><br>Elecciones de Congreso. El Pacto Histórico queda como primera bancada del Senado; Salvación Nacional entra con Enrique Gómez a la cabeza.</div>
+    <div><small>7 de agosto 2026</small><br>Se posesiona el presidente Abelardo de la Espriella.</div>
+    <div><small>Septiembre 2026</small><br>El ministro de Justicia Iván Cancino anuncia la ley de sometimiento: sin excarcelaciones ni reconocimiento político.</div>
+    <div><small>23 de septiembre 2026</small><br>Primer debate del Presupuesto aprueba recorte de $170.000 millones a la JEP. Ese mismo día Enrique Gómez radica el acto legislativo para cerrar la JEP en 2028.</div>
+    <div><small>13 de octubre 2026</small><br>El Gobierno radica la ley de sometimiento con mensaje de urgencia.</div>
+    <div><small>20–21 de octubre 2026</small><br>Gómez queda impedido en el Presupuesto 2027. Arranca el primer debate del sometimiento; se niega la ponencia de archivo y Cepeda queda impedido.</div>
+    <div><small>4 de noviembre 2026</small><br><span class="tag">Plazo</span> Vence la Ley 418 si no se aprueba la renovación.</div>
+    <div><small>Marzo 2028</small><br><span class="tag">Propuesto</span> Fecha de cierre de la JEP según el proyecto de Salvación Nacional.</div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <h2>Pruébese: ¿qué tanto sabe?</h2>
+  <div id="qz"></div>
+  <div class="card" id="score" style="display:none"></div>
+</section>
+
+<!-- NOTICIAS -->
+<section id="noticias">
+  <h2>Noticias de hoy</h2>
+  <p style="color:var(--muted);margin-top:0">Se actualizan solas cada vez que abre la app. Vienen de medios de todas las tendencias: lea más de uno.</p>
+  <div class="chips" id="chips">
+    <button class="on" data-q="JEP Jurisdicción Especial para la Paz">JEP</button>
+    <button data-q="&quot;ley de sometimiento&quot;">Sometimiento</button>
+    <button data-q="&quot;Enrique Gómez&quot; senador">Enrique Gómez</button>
+    <button data-q="&quot;Pacto Histórico&quot; Senado">Pacto Histórico</button>
+  </div>
+  <div class="card news" id="news"><small>Cargando noticias…</small></div>
+</section>
+
+<!-- FUENTES -->
+<section id="fuentes">
+  <h2>Fuentes</h2>
+  <div class="card src">
+    <ul>
+      <li><a href="https://www.senado.gov.co/index.php/el-senado/noticias/7610-senador-enrique-gomez-radico-proyecto-para-que-la-jep-no-se-extienda-por-5-anos-mas" target="_blank" rel="noopener">Senado: Gómez radicó proyecto sobre la vigencia de la JEP</a></li>
+      <li><a href="https://cambiocolombia.com/pais/articulo/2026/9/asi-es-el-proyecto-con-el-que-salvacion-nacional-busca-que-la-jep-no-extienda-su-vigencia/" target="_blank" rel="noopener">Cambio: así es el proyecto sobre la JEP</a></li>
+      <li><a href="https://www.minuto60.com/colombia/juan-manuel-santos-jep-hoy-no-esta-acuerdo-prorrogarla/16371" target="_blank" rel="noopener">Minuto60: Santos se opone a prorrogar la JEP</a></li>
+      <li><a href="https://minuto60.com/politica/congreso-se-debatiran-dos-proyectos-que-buscan-modificar-jep/15943" target="_blank" rel="noopener">Minuto60: los dos proyectos sobre la JEP</a></li>
+      <li><a href="https://www.vanguardia.com/politica/2026/09/23/proyecto-de-ley-que-busca-recorte-presupuestal-a-la-jep-fue-radicado/" target="_blank" rel="noopener">Vanguardia: recorte presupuestal a la JEP</a></li>
+      <li><a href="https://www.elpais.com.co/colombia/la-iniciativa-en-el-congreso-que-pretende-trasladar-100000-millones-de-la-jep-a-la-rama-judicial-presidente-de-la-espriella-la-respalda-1847.html" target="_blank" rel="noopener">El País: traslado de recursos de la JEP a la Rama Judicial</a></li>
+      <li><a href="https://www.elnuevosiglo.com.co/politica/duro-debate-en-el-congreso-de-proyecto-que-reduce-presupuesto-la-jep" target="_blank" rel="noopener">El Nuevo Siglo: debate del recorte a la JEP</a></li>
+      <li><a href="https://www.semana.com/confidenciales/articulo/senador-enrique-gomez-impedido-para-participar-en-el-debate-del-presupuesto-2027/202611/" target="_blank" rel="noopener">Semana: Gómez impedido en el Presupuesto 2027</a></li>
+      <li><a href="https://www.elheraldo.co/politica/2026/10/21/enrique-gomez-afirma-que-el-presupuesto-general-de-la-nacion-se-adoptara-por-decreto/" target="_blank" rel="noopener">El Heraldo: Presupuesto por decreto</a></li>
+      <li><a href="https://cambiocolombia.com/poder/articulo/2026/10/gobierno-radico-la-ley-de-sometimiento-asi-quedo-el-proyecto-con-el-que-de-la-espriella-le-dice-adios-a-la-paz-total" target="_blank" rel="noopener">Cambio: así quedó la ley de sometimiento</a></li>
+      <li><a href="https://cambiocolombia.com/pais/articulo/2026/10/el-congreso-se-alista-para-debatir-la-ley-de-sometimiento-el-proyecto-con-el-que-el-gobierno-deja-atras-la-paz-total" target="_blank" rel="noopener">Cambio: la ponencia del sometimiento</a></li>
+      <li><a href="https://www.publimetro.co/noticias/2026/10/13/ley-de-sometimiento-de-de-la-espriella-estos-son-los-criminales-que-podrian-reducir-sus-penas-hasta-un-50/" target="_blank" rel="noopener">Publimetro: rebajas de hasta 50 %</a></li>
+      <li><a href="https://www.vanguardia.com/politica/2026/10/20/comisiones-primeras-y-el-ministerio-de-justicia-debatieron-la-ley-de-sometimiento/" target="_blank" rel="noopener">Vanguardia: comisiones primeras y MinJusticia</a></li>
+      <li><a href="https://www.elpais.com.co/politica/empezo-la-discusion-de-la-ley-de-sometimiento-de-abelardo-de-la-espriella-en-el-congreso-supera-ponencia-de-archivo-2155.html" target="_blank" rel="noopener">El País: supera ponencia de archivo</a></li>
+      <li><a href="https://www.minuto30.com/por-fuera-del-debate-sacan-a-ivan-cepeda-de-la-discusion-de-la-ley-de-sometimiento/1723327/" target="_blank" rel="noopener">Minuto30: Cepeda impedido</a></li>
+      <li><a href="https://cambiocolombia.com/puntos-de-vista/articulo/2026/9/sometimiento-segun-de-la-espriella" target="_blank" rel="noopener">Cambio (opinión): sometimiento según De la Espriella</a></li>
+      <li><a href="https://www.semana.com/confidenciales/articulo/senador-rafael-nieto-endurece-postura-frente-a-salvacion-nacional-a-enrique-gomez-no-hay-nada-que-responderle-no-vale-la-pena/202635/" target="_blank" rel="noopener">Semana: Rafael Nieto vs. Enrique Gómez</a></li>
+    </ul>
+  </div>
+  <div class="card note">
+    <strong>Vea los debates completos</strong>
+    <p>Las sesiones se transmiten y quedan grabadas en el Canal del Congreso. Antes de compartir un video corto, búsquelo completo y escuche también la respuesta del otro lado.</p>
+    <a class="btn" href="https://www.youtube.com/@CanalCongresoColombia/videos" target="_blank" rel="noopener">Canal del Congreso</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Hecho por <b>Vibras Positivas HM</b> · Caucasia, Antioquia<br>
+  App informativa e independiente. No pertenece a ningún partido ni entidad pública.<br>
+  <span id="online"></span>
+</footer>
+
+<script>
+// ---------- Pestañas ----------
+const tabs=[...document.querySelectorAll('#tabs button')];
+function show(id){
+  tabs.forEach(b=>b.classList.toggle('on',b.dataset.t===id));
+  document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='noticias') loadNews();
+  try{history.replaceState(null,'','#'+id)}catch(e){}
+}
+tabs.forEach(b=>b.onclick=()=>show(b.dataset.t));
+document.querySelectorAll('[data-go]').forEach(a=>a.onclick=e=>{e.preventDefault();show(a.dataset.go)});
+if(location.hash && document.getElementById(location.hash.slice(1))) show(location.hash.slice(1));
+
+// ---------- Tema ----------
+const root=document.documentElement;
+try{const t=localStorage.getItem('jep-tema');if(t)root.dataset.theme=t}catch(e){}
+document.getElementById('tema').onclick=()=>{
+  const dark=root.dataset.theme==='dark'||(!root.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('jep-tema',root.dataset.theme)}catch(e){}
+};
+
+// ---------- Hora Colombia ----------
+function horaCO(d){
+  return new Intl.DateTimeFormat('es-CO',{timeZone:'America/Bogota',day:'numeric',month:'short',hour:'numeric',minute:'2-digit'}).format(d);
+}
+
+// ---------- Quiz ----------
+const Q=[
+ {p:'¿Qué propone el proyecto de Enrique Gómez sobre la JEP?',o:['Eliminarla mañana mismo','Que termine en marzo de 2028 sin prórroga','Duplicarle el presupuesto'],r:1,w:'El acto legislativo fija 10 años sin prórroga y pasa los casos pendientes a la justicia ordinaria.'},
+ {p:'¿Por qué Enrique Gómez no votó el Presupuesto 2027?',o:['Estaba de viaje','Su hermano es el ministro de Hacienda','Lo sancionaron'],r:1,w:'El Congreso le aprobó un impedimento por conflicto de interés.'},
+ {p:'¿Cuánta rebaja de pena ofrece la ley de sometimiento a un cabecilla?',o:['Hasta 30 %','Hasta 50 %','Hasta 90 %'],r:0,w:'Hasta 50 % para rasos y hasta 30 % para cabecillas, si cumplen las condiciones.'},
+ {p:'¿Qué pasa el 4 de noviembre de 2026?',o:['Se cierra la JEP','Vence la Ley 418 de orden público','Hay elecciones'],r:1,w:'Por eso el Gobierno pidió trámite con mensaje de urgencia.'},
+ {p:'¿Qué expresidente también dijo que la JEP debería terminar en 2028?',o:['Juan Manuel Santos','Álvaro Uribe','Gustavo Petro'],r:0,w:'Santos, aunque defiende lo que ha hecho el tribunal y le pide acelerar.'}
+];
+let pts=0,resp=0;
+const qz=document.getElementById('qz');
+Q.forEach((q,i)=>{
+  const d=document.createElement('div');d.className='card q';
+  d.innerHTML='<p>'+(i+1)+'. '+q.p+'</p>'+q.o.map((o,j)=>'<button data-j="'+j+'">'+o+'</button>').join('')+'<div class="why">'+q.w+'</div>';
+  d.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    if(d.dataset.done)return;d.dataset.done=1;resp++;
+    const j=+b.dataset.j;
+    if(j===q.r){b.classList.add('ok');pts++}else{b.classList.add('no');d.querySelector('[data-j="'+q.r+'"]').classList.add('ok')}
+    d.querySelector('.why').style.display='block';
+    if(resp===Q.length){const s=document.getElementById('score');s.style.display='block';
+      s.innerHTML='<b>Resultado: '+pts+' de '+Q.length+'</b><p>'+(pts>=4?'¡Usted está bien informado! Comparta la app para que otros también lo estén.':'Repase las pestañas JEP y Sometimiento y vuelva a intentarlo.')+'</p><a class="btn" href="#" onclick="compartir();return false">Compartir la app</a>';}
+  });
+  qz.appendChild(d);
+});
+function compartir(){
+  const data={title:'JEP y Sometimiento, explicados',text:'El debate del Congreso con las dos posturas y las noticias del día:',url:location.href.split('#')[0]};
+  if(navigator.share)navigator.share(data).catch(()=>{});
+  else window.open('https://wa.me/?text='+encodeURIComponent(data.text+' '+data.url),'_blank');
+}
+
+// ---------- Noticias que se actualizan solas ----------
+let qActual=document.querySelector('#chips .on').dataset.q;
+document.querySelectorAll('#chips button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#chips button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');qActual=b.dataset.q;loadNews(true);
+});
+function rssURL(q){return 'https://news.google.com/rss/search?q='+encodeURIComponent(q+' when:14d')+'&hl=es-419&gl=CO&ceid=CO:es-419'}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function render(items,fuente){
+  const box=document.getElementById('news');
+  if(!items.length){box.innerHTML='<small>No llegaron noticias en este momento. Revise su conexión e intente de nuevo.</small>';return}
+  box.innerHTML=items.slice(0,12).map(it=>{
+    let t=it.title||'',src='';
+    const m=t.match(/^(.*) - ([^-]+)$/);if(m){t=m[1];src=m[2]}
+    const f=it.date?horaCO(new Date(it.date)):'';
+    return '<a href="'+esc(it.link)+'" target="_blank" rel="noopener"><b>'+esc(t)+'</b><br><small>'+esc(src)+(f?' · '+f:'')+'</small></a>';
+  }).join('')+'<small style="display:block;margin-top:8px">'+fuente+'</small>';
+}
+async function viaRss2json(q){
+  const r=await fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(rssURL(q)));
+  const j=await r.json();if(j.status!=='ok')throw 0;
+  return j.items.map(i=>({title:i.title,link:i.link,date:(i.pubDate||'').replace(' ','T')+'Z'}));
+}
+async function viaAllorigins(q){
+  const r=await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent(rssURL(q)));
+  const x=new DOMParser().parseFromString(await r.text(),'text/xml');
+  return [...x.querySelectorAll('item')].map(i=>({title:i.querySelector('title')?.textContent,link:i.querySelector('link')?.textContent,date:i.querySelector('pubDate')?.textContent}));
+}
+let cargadas={};
+async function loadNews(force){
+  if(cargadas[qActual]&&!force){render(cargadas[qActual],'Actualizado: '+horaCO(new Date()));return}
+  const box=document.getElementById('news');box.innerHTML='<small>Buscando las noticias más recientes…</small>';
+  const key='jep-news-'+qActual;
+  for(const fn of [viaRss2json,viaAllorigins]){
+    try{
+      const items=(await fn(qActual)).filter(i=>i.title&&i.link).sort((a,b)=>new Date(b.date)-new Date(a.date));
+      if(items.length){cargadas[qActual]=items;try{localStorage.setItem(key,JSON.stringify({t:Date.now(),items}))}catch(e){}
+        render(items,'Actualizado: '+horaCO(new Date())+' (hora Colombia)');return}
+    }catch(e){}
+  }
+  try{const c=JSON.parse(localStorage.getItem(key));if(c&&c.items){render(c.items,'Sin conexión. Mostrando lo guardado el '+horaCO(new Date(c.t)));return}}catch(e){}
+  render([], '');
+}
+
+// ---------- Estado de conexión y PWA ----------
+function net(){document.getElementById('online').textContent=navigator.onLine?'':'Está sin internet: el contenido explicativo sigue disponible.'}
+addEventListener('online',net);addEventListener('offline',net);net();
+if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}
+</script>
+</body>
+</html>
