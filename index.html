@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>JEP y Sometimiento</title>
-<meta name="description" content="El debate de la JEP y la ley de sometimiento explicado para todos los colombianos. Las dos posturas, las cifras y las noticias del día. Vibras Positivas HM.">
+<meta name="description" content="La ley de sometimiento ya pasó por el Congreso: cómo votó cada cámara, qué quedó en la ley, qué sigue y cómo pedir la lista de quién votó no. Vibras Positivas HM.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JEP y Sometimiento al Día">
+<meta property="og:description" content="Aprobada: Senado 57-24 y Cámara 95-10. Qué quedó en la ley, qué sigue y cómo exigir la lista de quién votó no.">
+<meta property="og:image" content="https://haroldco45.github.io/jep-y-sometimiento/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://haroldco45.github.io/jep-y-sometimiento/og-image.jpg">
 <meta name="theme-color" content="#0f2a44">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -81,6 +89,42 @@ li{margin:.35rem 0}
 .src a{color:var(--a);word-break:break-word}
 .btn{display:inline-block;background:var(--gold);color:#1b1405;font-weight:800;border:0;border-radius:10px;padding:11px 16px;text-decoration:none;cursor:pointer;font-size:.95rem}
 footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40px}
+.estado{background:linear-gradient(120deg,#0f2a44,#1f5fa8);color:#fff;border-radius:16px;padding:18px;margin-bottom:14px;position:relative;overflow:hidden}
+.estado::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);animation:barrido 3.5s ease-in-out infinite}
+@keyframes barrido{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.estado .sello{display:inline-block;background:var(--gold);color:#1b1405;font-weight:800;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:3px 10px}
+.estado h2{color:#fff;margin:.5rem 0 .3rem}
+.estado p{margin:0;opacity:.9}
+.pulso{display:inline-block;width:9px;height:9px;border-radius:50%;background:#ff5a5a;margin-right:6px;animation:latido 1.6s infinite}
+@keyframes latido{0%{box-shadow:0 0 0 0 rgba(255,90,90,.7)}70%{box-shadow:0 0 0 10px rgba(255,90,90,0)}100%{box-shadow:0 0 0 0 rgba(255,90,90,0)}}
+.rejilla{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:620px){.rejilla{grid-template-columns:1fr 1fr}}
+.nota{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .2s}
+.nota:hover{transform:translateY(-3px)}
+.nota .img{aspect-ratio:16/9;background:#0f2a44 center/cover no-repeat;animation:acercar 9s ease-out forwards}
+@keyframes acercar{from{background-size:112%}to{background-size:100%}}
+.nota .txt{padding:12px 14px}
+.nota b{display:block;line-height:1.3}
+.nota small{color:var(--muted)}
+.nota.sinfoto .img{display:none}
+.vid{display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:center;text-decoration:none;color:var(--ink);padding:8px 0;border-bottom:1px solid var(--line)}
+.vid div{aspect-ratio:16/9;border-radius:8px;background:#000 center/cover}
+.btn-act{background:var(--gold);color:#1b1405;border:0;border-radius:99px;padding:7px 14px;font:800 .85rem Inter,sans-serif;cursor:pointer;margin-top:12px}
+.btn-act.girando{opacity:.6}
+.vot{margin:10px 0 16px}
+.vot .fila{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:4px}
+.barra{display:flex;height:14px;border-radius:99px;overflow:hidden;background:var(--line)}
+.barra i{display:block;height:100%;width:0;transition:width 1.2s ease}
+.barra .si{background:var(--ok)}.barra .no{background:var(--b)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+td,th{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+form label{display:block;font-weight:600;font-size:.88rem;margin:10px 0 4px}
+form input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+.carta{white-space:pre-wrap;font-size:.84rem;background:var(--bg);border:1px dashed var(--line);border-radius:10px;padding:12px;max-height:260px;overflow:auto}
+.dest{font-size:.84rem;color:var(--muted)}
+.acciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn.sec{background:var(--card);color:var(--ink);border:1px solid var(--line)}
 #tema{position:absolute;right:12px;top:12px;z-index:2;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:99px;padding:6px 10px;cursor:pointer;font-size:.85rem}
 </style>
 </head>
@@ -90,13 +134,16 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40
   <div class="brand">Vibras Positivas HM · App ciudadana</div>
   <h1>JEP y Sometimiento, explicados</h1>
   <p class="sub">El debate que tiene encendido al Congreso, contado con datos y con las dos posturas, para que usted saque sus propias conclusiones.</p>
-  <div class="stamp" id="stamp">Contenido verificado al 23 de octubre de 2026 · hora Colombia</div>
+  <div class="stamp" id="stamp">Contenido verificado al 4 de noviembre de 2026, 4:00 a. m. · hora Colombia</div>
+  <button class="btn-act" id="actualizar">Actualizar</button>
 </header>
 
 <nav id="tabs">
-  <button data-t="inicio" class="on">Inicio</button>
+  <button data-t="hoy" class="on">Hoy</button>
+  <button data-t="inicio">Inicio</button>
   <button data-t="jep">La JEP</button>
   <button data-t="sometimiento">Sometimiento</button>
+  <button data-t="votacion">Votación</button>
   <button data-t="posturas">Dos posturas</button>
   <button data-t="linea">Línea de tiempo</button>
   <button data-t="quiz">Pruébese</button>
@@ -106,18 +153,42 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40
 
 <main>
 
+<!-- HOY -->
+<section id="hoy" class="on">
+  <div class="estado">
+    <span class="sello">Aprobada por el Congreso</span>
+    <h2>La ley de sometimiento pasó los cuatro debates</h2>
+    <p>El Senado la aprobó 57 a 24 y la Cámara 95 a 10 el martes 3 de noviembre. La Cámara acogió el mismo texto del Senado, así que no hubo conciliación. Solo falta la firma del presidente Abelardo de la Espriella, que debe llegar hoy, 4 de noviembre, cuando vence la Ley 418 de orden público.</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><b>57 – 24</b><span>votación final en el Senado</span></div>
+    <div class="kpi"><b>95 – 10</b><span>votación final en la Cámara</span></div>
+    <div class="kpi"><b>4 años</b><span>vigencia de la ley (el Gobierno proponía 10)</span></div>
+    <div class="kpi"><b>Hoy</b><span>plazo para la sanción presidencial</span></div>
+  </div>
+  <div class="card note">
+    <strong>¿Quiénes fueron los 24 que votaron no?</strong>
+    <p>La lista nominal todavía no se ha publicado. Queda en el acta de la plenaria y en la Gaceta del Congreso. Usted puede pedirla ya con un derecho de petición que sale desde esta app.</p>
+    <a class="btn" href="#" data-go="votacion">Ver votaciones y pedir la lista</a>
+  </div>
+  <h2>Hoy en el sometimiento <small id="hoyFecha" style="font:600 .8rem Inter;color:var(--muted)"></small></h2>
+  <div id="senales"></div>
+  <div class="rejilla" id="hoyLista"><div class="card"><small>Buscando las noticias de hoy…</small></div></div>
+  <div id="videos"></div>
+</section>
+
 <!-- INICIO -->
-<section id="inicio" class="on">
+<section id="inicio">
   <div class="card note">
     <strong>¿Por qué esta app?</strong>
     <p>Por redes circulan videos cortos de los debates del Senado con títulos como “tremenda peinada”. Esos clips muestran solo un lado. Aquí está el contexto completo: qué se está votando, quién propone qué y qué dicen los que están en contra.</p>
   </div>
 
   <div class="kpis">
-    <div class="kpi"><b>2</b><span>debates calientes: el futuro de la JEP y la ley de sometimiento</span></div>
+    <div class="kpi"><b>Aprobada</b><span>la ley de sometimiento, 3 de noviembre de 2026</span></div>
     <div class="kpi"><b>$170.000 M</b><span>recorte a la JEP aprobado en primer debate del Presupuesto 2027</span></div>
     <div class="kpi"><b>Mar. 2028</b><span>fecha de cierre de la JEP que propone Salvación Nacional</span></div>
-    <div class="kpi"><b>4 nov.</b><span>se vence la Ley 418 de orden público si no se renueva</span></div>
+    <div class="kpi"><b>4 nov.</b><span>plazo para la sanción: ese día vencía la Ley 418</span></div>
   </div>
 
   <h2>En 30 segundos</h2>
@@ -125,7 +196,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40
     <h3>1. La JEP</h3>
     <p>Es el tribunal que nació del Acuerdo de Paz de 2016 para juzgar crímenes del conflicto, tanto de exguerrilleros de las FARC como de miembros de la Fuerza Pública. El senador Enrique Gómez (Salvación Nacional, partido del Gobierno) propone recortarle plata y cerrarla en marzo de 2028, sin prórroga.</p>
     <h3>2. La ley de sometimiento</h3>
-    <p>Es la apuesta del gobierno de Abelardo de la Espriella para reemplazar la “Paz Total” del gobierno anterior. No hay negociación política: se ofrece a los grupos criminales entregarse a la justicia a cambio de rebajas de pena, con condiciones.</p>
+    <p>Es la apuesta del gobierno de Abelardo de la Espriella para reemplazar la “Paz Total” del gobierno anterior. No hay negociación política: se ofrece a los grupos criminales entregarse a la justicia a cambio de rebajas de pena, con condiciones. El Congreso la aprobó el 3 de noviembre y solo falta la sanción presidencial.</p>
     <h3>3. ¿Quién está de cada lado?</h3>
     <p>El oficialismo (Salvación Nacional y aliados) impulsa ambos proyectos. El Pacto Histórico, principal bancada de oposición, se opone. El Centro Democrático apoya el sometimiento pero ha tenido choques fuertes con Enrique Gómez.</p>
   </div>
@@ -177,8 +248,10 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40
     <ul>
       <li><b>Número:</b> Proyecto de Ley 433 de 2026 Cámara / 296 de 2026 Senado.</li>
       <li><b>Radicada:</b> 13 de octubre de 2026, por los ministros Iván Cancino (Justicia) y Rodrigo Lara (Interior).</li>
-      <li><b>Trámite:</b> con mensaje de urgencia; primer debate en comisiones primeras conjuntas desde el 21 de octubre.</li>
-      <li><b>Base:</b> modifica y renueva la Ley 418 de 1997 (orden público), que vence el <b>4 de noviembre</b>.</li>
+      <li><b>Trámite:</b> con mensaje de urgencia. Comisiones primeras conjuntas el 21 de octubre; plenarias del 30 de octubre al 3 de noviembre.</li>
+      <li><b>Estado:</b> <span class="tag">Aprobada</span> Senado 57–24 y Cámara 95–10, mismo texto, sin conciliación. Pendiente de sanción presidencial.</li>
+      <li><b>Vigencia:</b> 4 años (el proyecto original decía 10).</li>
+      <li><b>Base:</b> modifica y renueva la Ley 418 de 1997 (orden público), que vencía el <b>4 de noviembre</b>.</li>
       <li>Deroga los artículos de la Ley 2272 de 2022 que crearon la “Paz Total”.</li>
     </ul>
   </div>
@@ -199,9 +272,69 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40
     <p>Según la ponencia, cerca de <b>28.800</b> personas armadas integran hoy las estructuras que podrían acogerse. Esa cifra casi se duplicó frente a los 15.120 de diciembre de 2022.</p>
   </div>
 
+  <div class="card">
+    <h3 style="margin-top:0">Lo que cambió en el Congreso</h3>
+    <ul>
+      <li>La vigencia bajó de 10 a 4 años.</li>
+      <li>Se eliminó el artículo de gastos reservados de seguridad a cargo del Ministerio del Interior.</li>
+      <li>Se quitaron los beneficios para los reclutadores de menores y hay menos beneficios para el lavado de activos.</li>
+      <li>Los costos del sometimiento pasan al Ministerio de Justicia, no a municipios ni departamentos.</li>
+      <li>Hay un límite de seis años para la libertad condicional; quien incumpla sale del proceso y vuelve a la justicia ordinaria.</li>
+      <li>Según la senadora Nadia Blel, los cabecillas no podrán recibir penas menores a 10 años.</li>
+    </ul>
+  </div>
+
+  <div class="card note">
+    <strong>La pelea por el “vicio de trámite”</strong>
+    <p>El 2 de noviembre el presidente de la Cámara, Nicolás Barguil, abrió la votación de la ponencia sin que el ponente Daniel Briceño la sustentara. La oposición dijo que eso vicia el trámite. Alianza Verde pidió repetir la votación y se repitió. Briceño niega que haya vicio. Este punto podría terminar en una demanda ante la Corte Constitucional.</p>
+  </div>
+
   <div class="card note">
     <strong>Lo que pasó el 21 de octubre</strong>
     <p>Las comisiones primeras negaron la ponencia de archivo del Pacto Histórico y el debate siguió con la ponencia positiva del oficialismo. Al senador Iván Cepeda le aprobaron un impedimento, así que no participa ni vota en este proyecto.</p>
+  </div>
+</section>
+
+<!-- VOTACION -->
+<section id="votacion">
+  <h2>Cómo se votó, paso a paso</h2>
+  <div class="card">
+    <div class="vot"><div class="fila"><b>Senado · votación final (3 nov.)</b><span>57 sí · 24 no</span></div><div class="barra"><i class="si" data-w="70.4"></i><i class="no" data-w="29.6"></i></div></div>
+    <div class="vot"><div class="fila"><b>Cámara · votación final (3 nov.)</b><span>95 sí · 10 no</span></div><div class="barra"><i class="si" data-w="90.5"></i><i class="no" data-w="9.5"></i></div></div>
+    <table>
+      <tr><th>Fecha</th><th>Qué se votó</th><th>Resultado</th></tr>
+      <tr><td>21 oct.</td><td>Ponencia positiva en comisiones primeras conjuntas</td><td>Senado 21–1 · Cámara 21–10</td></tr>
+      <tr><td>30 oct.</td><td>Plenaria Senado: ponencia de archivo del Pacto Histórico</td><td>Negada 45–19</td></tr>
+      <tr><td>30 oct.</td><td>Plenaria Senado: ponencia positiva</td><td>48–5</td></tr>
+      <tr><td>2 nov.</td><td>Plenaria Cámara: proposición de archivo</td><td>Negada 93–54</td></tr>
+      <tr><td>2 nov.</td><td>Plenaria Cámara: ponencia positiva (luego se repitió por un reclamo de vicio de trámite)</td><td>81–42</td></tr>
+      <tr><td>3 nov.</td><td>Plenaria Senado: título y pregunta</td><td><b>57–24</b></td></tr>
+      <tr><td>3 nov.</td><td>Plenaria Cámara: aprobación del texto del Senado</td><td><b>95–10</b></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Los nombres que ya se conocen</h3>
+    <p>En la ponencia del 30 de octubre (48–5), los cinco votos por el no fueron de Carolina Corcho, Pedro Flórez y Alejandro Ocampo (Pacto Histórico) y de Ariel Ávila y Jhon Amaya (Alianza Verde). Votaron no, pero al quedarse en el recinto completaron el quórum.</p>
+    <p>Para la votación final de 57–24 los medios todavía no han publicado los nombres. Ojo: no dé por hecho que son todos del Pacto Histórico, porque esa bancada se retiró del recinto durante parte del debate.</p>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">Derecho de petición: pida la lista de quién votó qué</h3>
+    <p>Llene sus datos y la carta sale de una sola vez para el Senado y la Cámara. Por ley deben responder en máximo 10 días hábiles cuando se piden documentos (artículo 14 de la Ley 1437 de 2011, modificado por la Ley 1755 de 2015).</p>
+    <form id="fPet" onsubmit="return false">
+      <label for="pNom">Nombre completo</label><input id="pNom" autocomplete="name">
+      <label for="pCed">Cédula</label><input id="pCed" inputmode="numeric">
+      <label for="pCiu">Ciudad</label><input id="pCiu" value="Caucasia, Antioquia">
+      <label for="pMail">Correo para la respuesta</label><input id="pMail" type="email" autocomplete="email">
+    </form>
+    <p class="dest">Va dirigida a: Senado (atencionciudadanacongreso@senado.gov.co) y Secretaría General de la Cámara (secretariageneral.juridica@camara.gov.co y secretariageneral.legislativa@camara.gov.co).</p>
+    <div class="carta" id="carta"></div>
+    <div class="acciones">
+      <a class="btn" href="#" id="pEnviar">Enviar desde mi correo</a>
+      <a class="btn sec" href="#" id="pGmail">Abrir en Gmail</a>
+      <a class="btn sec" href="#" id="pCopiar">Copiar la carta</a>
+    </div>
   </div>
 </section>
 
@@ -275,7 +408,10 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40
     <div><small>23 de septiembre 2026</small><br>Primer debate del Presupuesto aprueba recorte de $170.000 millones a la JEP. Ese mismo día Enrique Gómez radica el acto legislativo para cerrar la JEP en 2028.</div>
     <div><small>13 de octubre 2026</small><br>El Gobierno radica la ley de sometimiento con mensaje de urgencia.</div>
     <div><small>20–21 de octubre 2026</small><br>Gómez queda impedido en el Presupuesto 2027. Arranca el primer debate del sometimiento; se niega la ponencia de archivo y Cepeda queda impedido.</div>
-    <div><small>4 de noviembre 2026</small><br><span class="tag">Plazo</span> Vence la Ley 418 si no se aprueba la renovación.</div>
+    <div><small>30 de octubre 2026</small><br>Plenaria del Senado niega el archivo (45–19) y aprueba la ponencia (48–5).</div>
+    <div><small>2 de noviembre 2026</small><br>Plenaria de la Cámara niega el archivo (93–54). Polémica por presunto vicio de trámite; la ponencia se vuelve a votar.</div>
+    <div><small>3 de noviembre 2026</small><br><span class="tag">Aprobada</span> Senado 57–24 y Cámara 95–10, con el mismo texto. No hace falta conciliación.</div>
+    <div><small>4 de noviembre 2026</small><br><span class="tag">Hoy</span> Plazo para la sanción presidencial: ese día vencía la Ley 418.</div>
     <div><small>Marzo 2028</small><br><span class="tag">Propuesto</span> Fecha de cierre de la JEP según el proyecto de Salvación Nacional.</div>
   </div>
 </section>
@@ -294,6 +430,7 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40
   <div class="chips" id="chips">
     <button class="on" data-q="JEP Jurisdicción Especial para la Paz">JEP</button>
     <button data-q="&quot;ley de sometimiento&quot;">Sometimiento</button>
+    <button data-q="&quot;ley de sometimiento&quot; sanción OR votación">Votación y sanción</button>
     <button data-q="&quot;Enrique Gómez&quot; senador">Enrique Gómez</button>
     <button data-q="&quot;Pacto Histórico&quot; Senado">Pacto Histórico</button>
   </div>
@@ -321,6 +458,17 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:24px 16px 40
       <li><a href="https://www.elpais.com.co/politica/empezo-la-discusion-de-la-ley-de-sometimiento-de-abelardo-de-la-espriella-en-el-congreso-supera-ponencia-de-archivo-2155.html" target="_blank" rel="noopener">El País: supera ponencia de archivo</a></li>
       <li><a href="https://www.minuto30.com/por-fuera-del-debate-sacan-a-ivan-cepeda-de-la-discusion-de-la-ley-de-sometimiento/1723327/" target="_blank" rel="noopener">Minuto30: Cepeda impedido</a></li>
       <li><a href="https://cambiocolombia.com/puntos-de-vista/articulo/2026/9/sometimiento-segun-de-la-espriella" target="_blank" rel="noopener">Cambio (opinión): sometimiento según De la Espriella</a></li>
+      <li><a href="https://www.semana.com/politica/articulo/senado-aprobo-la-ley-de-sometimiento-falta-discusion-en-la-camara/202637/" target="_blank" rel="noopener">Semana: Senado aprobó la ley 57–24</a></li>
+      <li><a href="https://www.lasillavacia.com/en-vivo/congreso-aprueba-ley-de-sometimiento-del-gobierno-de-la-espriella/" target="_blank" rel="noopener">La Silla Vacía: Congreso aprueba la ley (Cámara 95–10)</a></li>
+      <li><a href="https://www.lasillavacia.com/en-vivo/pacto-y-alianza-verde-le-hicieron-quorum-al-gobierno-en-ley-de-sometimiento/" target="_blank" rel="noopener">La Silla Vacía: los 5 votos del no que salvaron el quórum</a></li>
+      <li><a href="https://www.senado.gov.co/index.php/el-senado/noticias/7690-ley-de-sometimiento-sigue-senado-niega-archivo-por-45-votos-contra-19" target="_blank" rel="noopener">Senado: niega archivo 45–19</a></li>
+      <li><a href="https://www.elheraldo.co/mundo/2026/11/03/camara-de-representantes-hunde-proposicion-de-archivo-de-la-ley-de-sometimiento/" target="_blank" rel="noopener">El Heraldo: Cámara hunde el archivo</a></li>
+      <li><a href="https://cwmas.com.co/poder/2026/11/03/error-tramite-ley-sometimiento-camara/" target="_blank" rel="noopener">Cambio: el error de trámite en la Cámara</a></li>
+      <li><a href="https://www.eltiempo.com/politica/congreso/ley-de-sometimiento-senado-aprobo-el-proyecto-y-camara-debate-entre-acoger-el-mismo-texto-o-apuntarle-a-una-conciliacion-in-extremis-3598212" target="_blank" rel="noopener">El Tiempo: mismo texto, sin conciliación</a></li>
+      <li><a href="https://www.infobae.com/colombia/2026/11/04/congreso-aprobo-la-ley-de-sometimiento-de-abelardo-de-la-espriella-asi-seran-las-rebajas-de-penas-para-criminales/" target="_blank" rel="noopener">Infobae: así quedaron las rebajas de penas</a></li>
+      <li><a href="https://www.infobae.com/colombia/2026/11/04/el-senado-de-la-republica-aprobo-la-ley-de-sometimiento-y-hay-ultimatum-para-los-criminales-no-se-va-a-devolver-dinero/" target="_blank" rel="noopener">Infobae: lo que dijeron Blel y Hernández</a></li>
+      <li><a href="https://senado.gov.co/index.php/participacion/contactenos" target="_blank" rel="noopener">Senado: canales para derechos de petición</a></li>
+      <li><a href="https://www.camara.gov.co/nuevos-canales-de-comunicacion-para-una-atencion-mas-eficiente-a-la-ciudadania/" target="_blank" rel="noopener">Cámara: correos de la Secretaría General</a></li>
       <li><a href="https://www.semana.com/confidenciales/articulo/senador-rafael-nieto-endurece-postura-frente-a-salvacion-nacional-a-enrique-gomez-no-hay-nada-que-responderle-no-vale-la-pena/202635/" target="_blank" rel="noopener">Semana: Rafael Nieto vs. Enrique Gómez</a></li>
     </ul>
   </div>
@@ -347,6 +495,7 @@ function show(id){
   document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===id));
   window.scrollTo({top:0,behavior:'smooth'});
   if(id==='noticias') loadNews();
+  if(id==='votacion') setTimeout(barras,150);
   try{history.replaceState(null,'','#'+id)}catch(e){}
 }
 tabs.forEach(b=>b.onclick=()=>show(b.dataset.t));
@@ -372,7 +521,8 @@ const Q=[
  {p:'¿Qué propone el proyecto de Enrique Gómez sobre la JEP?',o:['Eliminarla mañana mismo','Que termine en marzo de 2028 sin prórroga','Duplicarle el presupuesto'],r:1,w:'El acto legislativo fija 10 años sin prórroga y pasa los casos pendientes a la justicia ordinaria.'},
  {p:'¿Por qué Enrique Gómez no votó el Presupuesto 2027?',o:['Estaba de viaje','Su hermano es el ministro de Hacienda','Lo sancionaron'],r:1,w:'El Congreso le aprobó un impedimento por conflicto de interés.'},
  {p:'¿Cuánta rebaja de pena ofrece la ley de sometimiento a un cabecilla?',o:['Hasta 30 %','Hasta 50 %','Hasta 90 %'],r:0,w:'Hasta 50 % para rasos y hasta 30 % para cabecillas, si cumplen las condiciones.'},
- {p:'¿Qué pasa el 4 de noviembre de 2026?',o:['Se cierra la JEP','Vence la Ley 418 de orden público','Hay elecciones'],r:1,w:'Por eso el Gobierno pidió trámite con mensaje de urgencia.'},
+ {p:'¿Por qué la ley se votó a las carreras?',o:['Por las vacaciones del Congreso','Porque el 4 de noviembre vencía la Ley 418 de orden público','Por orden de la Corte'],r:1,w:'Por eso el Gobierno pidió mensaje de urgencia y hasta se sesionó el lunes festivo.'},
+ {p:'¿Cómo votó el Senado la ley de sometimiento en el último debate?',o:['57 sí y 24 no','95 sí y 10 no','48 sí y 5 no'],r:0,w:'57–24 en Senado. En la Cámara fue 95–10.'},
  {p:'¿Qué expresidente también dijo que la JEP debería terminar en 2028?',o:['Juan Manuel Santos','Álvaro Uribe','Gustavo Petro'],r:0,w:'Santos, aunque defiende lo que ha hecho el tribunal y le pide acelerar.'}
 ];
 let pts=0,resp=0;
@@ -386,7 +536,7 @@ Q.forEach((q,i)=>{
     if(j===q.r){b.classList.add('ok');pts++}else{b.classList.add('no');d.querySelector('[data-j="'+q.r+'"]').classList.add('ok')}
     d.querySelector('.why').style.display='block';
     if(resp===Q.length){const s=document.getElementById('score');s.style.display='block';
-      s.innerHTML='<b>Resultado: '+pts+' de '+Q.length+'</b><p>'+(pts>=4?'¡Usted está bien informado! Comparta la app para que otros también lo estén.':'Repase las pestañas JEP y Sometimiento y vuelva a intentarlo.')+'</p><a class="btn" href="#" onclick="compartir();return false">Compartir la app</a>';}
+      s.innerHTML='<b>Resultado: '+pts+' de '+Q.length+'</b><p>'+(pts>=5?'¡Usted está bien informado! Comparta la app para que otros también lo estén.':'Repase las pestañas JEP y Sometimiento y vuelva a intentarlo.')+'</p><a class="btn" href="#" onclick="compartir();return false">Compartir la app</a>';}
   });
   qz.appendChild(d);
 });
@@ -439,6 +589,65 @@ async function loadNews(force){
   try{const c=JSON.parse(localStorage.getItem(key));if(c&&c.items){render(c.items,'Sin conexión. Mostrando lo guardado el '+horaCO(new Date(c.t)));return}}catch(e){}
   render([], '');
 }
+
+// ---------- HOY: robot (noticias.json) + búsqueda en vivo al abrir ----------
+const ROBOT_TEMA=/sometimiento|ley 418|orden p[uú]blico|paz total|\bjep\b|acogimiento|cancino|cadavid|brice[nñ]o/i;
+const PASOS={sancion:'Sanción presidencial',demanda:'Demanda o vicio de trámite',corte:'Corte Constitucional',reglamento:'Reglamentación',sometidos:'Primeros sometimientos'};
+function hace(f){const m=(Date.now()-new Date(f))/60000;if(m<60)return 'hace '+Math.max(1,Math.round(m))+' min';if(m<1440)return 'hace '+Math.round(m/60)+' h';return horaCO(new Date(f))}
+async function cargarHoy(forzar){
+  const lista=document.getElementById('hoyLista');
+  let robot={noticias:[],videos:[],senales:[]};
+  try{const r=await fetch('noticias.json?'+Date.now(),{cache:'no-store'});if(r.ok)robot=await r.json()}catch(e){}
+  let vivo=[];
+  for(const fn of [viaRss2json,viaAllorigins]){try{vivo=await fn('"ley de sometimiento" OR "sometimiento a la justicia"');if(vivo.length)break}catch(e){}}
+  const mapa=new Map();
+  for(const n of (robot.noticias||[])) if(n.titulo&&n.enlace) mapa.set(n.titulo.toLowerCase().slice(0,70),{t:n.titulo,l:n.enlace,f:n.fecha,src:n.fuente,img:n.imagen});
+  for(const i of vivo){if(!i.title||!i.link)continue;let t=i.title,src='';const m=t.match(/^(.*) - ([^-]+)$/);if(m){t=m[1];src=m[2]}
+    const k=t.toLowerCase().slice(0,70);if(!mapa.has(k)&&ROBOT_TEMA.test(t))mapa.set(k,{t,l:i.link,f:i.date,src})}
+  let notas=[...mapa.values()].filter(n=>ROBOT_TEMA.test(n.t)).sort((a,b)=>new Date(b.f)-new Date(a.f));
+  const hoy=notas.filter(n=>Date.now()-new Date(n.f)<36*3600e3);
+  const mostrar=(hoy.length>=4?hoy:notas).slice(0,12);
+  document.getElementById('hoyFecha').textContent='· '+new Intl.DateTimeFormat('es-CO',{timeZone:'America/Bogota',weekday:'long',day:'numeric',month:'long',hour:'numeric',minute:'2-digit'}).format(new Date());
+  if(!mostrar.length){lista.innerHTML='<div class="card"><small>No llegaron noticias en este momento. Toque Actualizar en un rato.</small></div>'}
+  else lista.innerHTML=mostrar.map(n=>'<a class="nota'+(n.img?'':' sinfoto')+'" href="'+esc(n.l)+'" target="_blank" rel="noopener"><div class="img" style="background-image:url(\''+esc(n.img||'')+'\')"></div><div class="txt"><b>'+esc(n.t)+'</b><small>'+esc(n.src||'')+(n.f?' · '+hace(n.f):'')+'</small></div></a>').join('');
+  const sen=(robot.senales||[]).slice(0,3);
+  document.getElementById('senales').innerHTML=sen.length?'<div class="card note"><strong><span class="pulso"></span>Lo último del trámite</strong><ul>'+sen.map(x=>'<li><span class="tag">'+esc(PASOS[x.paso]||x.paso)+'</span> <a href="'+esc(x.enlace)+'" target="_blank" rel="noopener" style="color:var(--a)">'+esc(x.titulo)+'</a></li>').join('')+'</ul></div>':'';
+  const v=(robot.videos||[]).slice(0,4);
+  document.getElementById('videos').innerHTML=v.length?'<h3>Videos</h3><div class="card">'+v.map(x=>'<a class="vid" href="https://www.youtube.com/watch?v='+esc(x.id)+'" target="_blank" rel="noopener"><div style="background-image:url(\'https://i.ytimg.com/vi/'+esc(x.id)+'/mqdefault.jpg\')"></div><span><b style="font-size:.9rem">'+esc(x.titulo)+'</b><br><small>'+esc(x.canal||'')+'</small></span></a>').join('')+'</div>':'';
+  document.getElementById('stamp').textContent='Actualizado '+horaCO(new Date())+' · hora Colombia';
+}
+const bAct=document.getElementById('actualizar');
+bAct.onclick=async()=>{bAct.classList.add('girando');bAct.textContent='Actualizando…';cargadas={};await cargarHoy(true);
+  if(document.getElementById('noticias').classList.contains('on'))await loadNews(true);bAct.classList.remove('girando');bAct.textContent='Actualizar'};
+cargarHoy();
+
+// ---------- Barras de votación ----------
+function barras(){document.querySelectorAll('.barra i').forEach(i=>i.style.width=i.dataset.w+'%')}
+
+// ---------- Derecho de petición ----------
+const DEST=['atencionciudadanacongreso@senado.gov.co','secretariageneral.juridica@camara.gov.co','secretariageneral.legislativa@camara.gov.co'];
+const ASUNTO='Derecho de petición: registro de votación nominal del Proyecto de Ley 296 de 2026 Senado / 433 de 2026 Cámara (Ley de Sometimiento)';
+function carta(){
+  const v=id=>document.getElementById(id).value.trim();
+  const nom=v('pNom')||'[Su nombre]',ced=v('pCed')||'[Su cédula]',ciu=v('pCiu')||'[Su ciudad]',mail=v('pMail')||'[Su correo]';
+  const fecha=new Intl.DateTimeFormat('es-CO',{timeZone:'America/Bogota',day:'numeric',month:'long',year:'numeric'}).format(new Date());
+  return ciu+', '+fecha+'\n\nSeñores\nSECRETARÍA GENERAL DEL SENADO DE LA REPÚBLICA\nSECRETARÍA GENERAL DE LA CÁMARA DE REPRESENTANTES\nCongreso de la República de Colombia\n\nAsunto: '+ASUNTO+'\n\n'+
+  'Yo, '+nom+', identificado(a) con cédula de ciudadanía n.º '+ced+', en ejercicio del derecho fundamental de petición (artículo 23 de la Constitución Política y Ley 1755 de 2015) y del derecho de acceso a la información pública (Ley 1712 de 2014), respetuosamente solicito:\n\n'+
+  '1. Copia del registro de votación nominal y pública de la plenaria del Senado del 3 de noviembre de 2026 en la que se aprobaron el título y la pregunta del proyecto de ley (57 votos por el sí y 24 por el no), con el nombre, partido y sentido del voto de cada senador.\n'+
+  '2. Copia del registro de votación nominal de la plenaria de la Cámara de Representantes del 3 de noviembre de 2026 en la que se aprobó el proyecto (95 votos por el sí y 10 por el no), con el nombre, partido y sentido del voto de cada representante.\n'+
+  '3. Copia de los registros nominales de las demás votaciones del proyecto en plenarias (30 de octubre en Senado; 2 y 3 de noviembre en Cámara), incluidas las ponencias de archivo y la repetición de la votación de la ponencia en la Cámara.\n'+
+  '4. Relación de los congresistas que no votaron o estuvieron ausentes en cada una de esas votaciones, y de los impedimentos y recusaciones resueltos.\n'+
+  '5. Número y fecha de la Gaceta del Congreso en que se publicaron o se publicarán las actas correspondientes.\n\n'+
+  'Recuerdo que el artículo 133 de la Constitución establece que el voto de los congresistas es nominal y público, y que el artículo 14 de la Ley 1437 de 2011 fija diez (10) días hábiles para responder peticiones de documentos e información.\n\n'+
+  'Recibiré la respuesta en el correo electrónico: '+mail+'\n\nAtentamente,\n\n'+nom+'\nC.C. '+ced+'\n'+ciu;
+}
+function pintarCarta(){document.getElementById('carta').textContent=carta()}
+['pNom','pCed','pCiu','pMail'].forEach(id=>document.getElementById(id).addEventListener('input',pintarCarta));pintarCarta();
+function listo(){if(!document.getElementById('pNom').value.trim()||!document.getElementById('pCed').value.trim()){alertaSuave('Escriba su nombre y su cédula para que la petición sea válida.');return false}return true}
+function alertaSuave(t){const d=document.querySelector('.dest');d.textContent=t;d.style.color='var(--b)';setTimeout(()=>{d.style.color='';d.textContent='Va dirigida a: '+DEST.join(', ')},4000)}
+document.getElementById('pEnviar').onclick=e=>{e.preventDefault();if(!listo())return;location.href='mailto:'+DEST.join(',')+'?subject='+encodeURIComponent(ASUNTO)+'&body='+encodeURIComponent(carta())};
+document.getElementById('pGmail').onclick=e=>{e.preventDefault();if(!listo())return;window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(DEST.join(','))+'&su='+encodeURIComponent(ASUNTO)+'&body='+encodeURIComponent(carta()),'_blank')};
+document.getElementById('pCopiar').onclick=async e=>{e.preventDefault();try{await navigator.clipboard.writeText('Para: '+DEST.join(', ')+'\nAsunto: '+ASUNTO+'\n\n'+carta());e.target.textContent='Copiada'}catch(x){e.target.textContent='No se pudo copiar'}setTimeout(()=>e.target.textContent='Copiar la carta',2500)};
 
 // ---------- Estado de conexión y PWA ----------
 function net(){document.getElementById('online').textContent=navigator.onLine?'':'Está sin internet: el contenido explicativo sigue disponible.'}
