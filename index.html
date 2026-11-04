@@ -34,6 +34,20 @@
   --bg:#0e1620;--card:#162230;--ink:#e9eef3;--muted:#9fb0c0;--line:#25364a;
   --navy:#0a1d31;--a-soft:#16304d;--b-soft:#3a1d1d;--a:#7fb3ef;--b:#ef8b8b;
 }
+
+/* Video propio (Vibras Positivas HM) */
+.propio{display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:20px;align-items:center;background:var(--navy);color:#fff;border-radius:16px;padding:16px;margin-bottom:14px;border:2px solid var(--gold)}
+.propio video{width:100%;aspect-ratio:9/16;border-radius:12px;background:#000;display:block}
+.propio .ptag{display:inline-block;background:var(--gold);color:#0f2a44;font-weight:800;font-size:.7rem;letter-spacing:.08em;padding:5px 10px;border-radius:99px;text-transform:uppercase}
+.propio h3{margin:10px 0 6px;font:900 1.35rem Merriweather,serif;line-height:1.2;color:#fff}
+.propio p{margin:0 0 10px;color:#d7e1ec}
+.propio .cifras{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.propio .cifra{background:rgba(255,255,255,.08);border-radius:10px;padding:10px;border-left:4px solid var(--gold)}
+.propio .cifra b{display:block;font:900 1.1rem Merriweather,serif;color:var(--gold);line-height:1.2}
+.propio .cifra span{display:block;font-size:.8rem;color:#d7e1ec;line-height:1.35;margin-top:3px}
+.propio small{display:block;color:#aebdcc;font-size:.76rem}
+.propio .pbtn{display:inline-block;margin-top:10px;background:var(--gold);color:#0f2a44;font-weight:800;padding:9px 16px;border-radius:10px;text-decoration:none}
+@media(max-width:680px){.propio{grid-template-columns:1fr}.propio video{max-width:320px;margin:0 auto}}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55}
 header{background:var(--navy);color:#fff;padding:22px 16px 18px;position:relative;overflow:hidden}
@@ -217,7 +231,23 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
     <p>Rebajas de hasta 50 % para rasos y 30 % para cabecillas, entrega total de bienes, sin suspender capturas ni extradiciones, y sin beneficios para quien reclutó menores.</p>
     <a class="btn" href="#" data-go="laley">Leer la ley explicada</a>
   </div>
-  <h2>Hoy en el sometimiento <small id="hoyFecha" style="font:600 .8rem Inter;color:var(--muted)"></small></h2>
+  <div class="propio" id="video-propio">
+    <video controls playsinline preload="metadata" poster="video-sometimiento.jpg"><source src="ley-de-sometimiento.mp4" type="video/mp4"></video>
+    <div>
+      <span class="ptag">Video propio · Vibras Positivas HM</span>
+      <h3>¿Cuánta cárcel pagaría quien se entregue?</h3>
+      <p>Una aproximación con cálculos propios de un escenario probable: cinco casos de ejemplo con la rebaja máxima que da la ley.</p>
+      <div class="cifras">
+        <div class="cifra"><b>16 → 8 años</b><span>integrante de base con rebaja del 50 %</span></div>
+        <div class="cifra"><b>40 → 28 años</b><span>cabecilla con rebaja del 30 %</span></div>
+        <div class="cifra"><b>12 → 10 años</b><span>cabecilla: la pena no baja del piso de 10 años</span></div>
+        <div class="cifra"><b>30 → 30 años</b><span>reclutador de menores: sin ningún beneficio</span></div>
+      </div>
+      <small>Condenas hipotéticas, no de personas reales. Video hecho con ayuda de Opus 5.5.</small>
+      <a class="pbtn" href="ley-de-sometimiento.mp4" download>Descargar el video para compartir</a>
+    </div>
+  </div>
+    <h2>Hoy en el sometimiento <small id="hoyFecha" style="font:600 .8rem Inter;color:var(--muted)"></small></h2>
   <div id="senales"></div>
   <div class="rejilla" id="hoyLista"><div class="card"><small>Buscando las noticias de hoy…</small></div></div>
   <h3>Fotos de hoy</h3>
@@ -234,7 +264,23 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
     <p>El texto oficial todavía no se ha publicado en la Gaceta del Congreso. Este resumen sale del texto aprobado en comisiones el 21 de octubre y de los cambios que hicieron las plenarias, según explicaron el ministro de Justicia Iván Cancino y los ponentes. Donde la plenaria cambió algo, lo marcamos. Cuando salga el texto oficial, lo comparamos punto por punto.</p>
   </div>
 
-  <div class="resumen">
+  <div class="propio" id="video-propio2">
+    <video controls playsinline preload="metadata" poster="video-sometimiento.jpg"><source src="ley-de-sometimiento.mp4" type="video/mp4"></video>
+    <div>
+      <span class="ptag">Video propio · Vibras Positivas HM</span>
+      <h3>¿Cuánta cárcel pagaría quien se entregue?</h3>
+      <p>Una aproximación con cálculos propios de un escenario probable: cinco casos de ejemplo con la rebaja máxima que da la ley.</p>
+      <div class="cifras">
+        <div class="cifra"><b>16 → 8 años</b><span>integrante de base con rebaja del 50 %</span></div>
+        <div class="cifra"><b>40 → 28 años</b><span>cabecilla con rebaja del 30 %</span></div>
+        <div class="cifra"><b>12 → 10 años</b><span>cabecilla: la pena no baja del piso de 10 años</span></div>
+        <div class="cifra"><b>30 → 30 años</b><span>reclutador de menores: sin ningún beneficio</span></div>
+      </div>
+      <small>Condenas hipotéticas, no de personas reales. Video hecho con ayuda de Opus 5.5.</small>
+      <a class="pbtn" href="ley-de-sometimiento.mp4" download>Descargar el video para compartir</a>
+    </div>
+  </div>
+    <div class="resumen">
     <div><b>50 %</b><span>rebaja máxima para integrantes rasos</span></div>
     <div><b>30 %</b><span>rebaja máxima para cabecillas</span></div>
     <div><b>10 años</b><span>de cárcel mínima para quien tuvo mando</span></div>
