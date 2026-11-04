@@ -22,11 +22,15 @@ jobs:
           node-version: 20
       - name: Traer noticias, fotos y videos del sometimiento y la JEP
         run: node scripts/robot.mjs
+      - name: Vista previa con foto real
+        run: |
+          npm install --no-save --no-package-lock sharp@0.33
+          node scripts/og-foto.mjs || true
       - name: Guardar si hay cambios
         run: |
           git config user.name "robot-vibras"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add noticias.json
+          git add noticias.json og-image.jpg og-fuente.txt
           if git diff --staged --quiet; then
             echo "Nada nuevo"
           else

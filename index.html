@@ -37,7 +37,33 @@
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55}
 header{background:var(--navy);color:#fff;padding:22px 16px 18px;position:relative;overflow:hidden}
-header::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:18px solid var(--gold);opacity:.18}
+header::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:18px solid var(--gold);opacity:.18;z-index:1}
+header{min-height:300px}
+header>*:not(.fondo){position:relative;z-index:2}
+header .fondo{position:absolute;inset:0;z-index:0}
+header .fondo div{position:absolute;inset:0;background:center/cover no-repeat;opacity:0;transition:opacity 1.4s ease}
+header .fondo div.on{opacity:1;animation:kenburns 9s ease-out forwards}
+header .fondo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,29,49,.55),rgba(10,29,49,.92) 75%)}
+@keyframes kenburns{from{transform:scale(1.15) translate(1.5%,1%)}to{transform:scale(1) translate(0,0)}}
+.credito{position:relative;z-index:2;font-size:.7rem;opacity:.7;margin-top:8px}
+.credito a{color:#fff}
+.banner{position:relative;border-radius:16px;overflow:hidden;margin:0 0 14px;aspect-ratio:16/8;background:#0f2a44;display:block;text-decoration:none;color:#fff}
+.banner div{position:absolute;inset:0;background:center/cover no-repeat;animation:kenburns 10s ease-out forwards}
+.banner span{position:absolute;left:0;right:0;bottom:0;padding:30px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-weight:700;line-height:1.3}
+.banner small{display:block;font-weight:600;opacity:.8;font-size:.75rem}
+.galeria{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-bottom:14px;scrollbar-width:none}
+.galeria::-webkit-scrollbar{display:none}
+.galeria a{flex:0 0 78%;scroll-snap-align:start;position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#0f2a44 center/cover;color:#fff;text-decoration:none}
+@media(min-width:620px){.galeria a{flex-basis:40%}}
+.galeria a span{position:absolute;left:0;right:0;bottom:0;padding:24px 10px 8px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:.85rem;font-weight:700;line-height:1.25}
+.yt{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000 center/cover;cursor:pointer;margin-bottom:6px}
+.yt.corto{aspect-ratio:9/16;max-height:520px;margin:0 auto 6px}
+.yt::after{content:"";position:absolute;left:50%;top:50%;width:64px;height:44px;margin:-22px 0 0 -32px;border-radius:12px;background:#e00 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/26px no-repeat;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.yt.play::after{display:none}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.videos{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:620px){.videos{grid-template-columns:1fr 1fr}}
+.videos b{font-size:.9rem;line-height:1.3;display:block}
 .brand{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:800}
 h1{font-family:Merriweather,serif;font-size:1.7rem;line-height:1.2;margin:.35rem 0 .4rem}
 .sub{opacity:.85;font-size:.95rem;margin:0}
@@ -142,12 +168,14 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
 </head>
 <body>
 <header>
+  <div class="fondo" id="fondo"></div>
   <button id="tema" aria-label="Cambiar tema">◐</button>
   <div class="brand">Vibras Positivas HM · App ciudadana</div>
   <h1>JEP y Sometimiento, explicados</h1>
   <p class="sub">El debate que tiene encendido al Congreso, contado con datos y con las dos posturas, para que usted saque sus propias conclusiones.</p>
   <div class="stamp" id="stamp">Contenido verificado al 4 de noviembre de 2026, 4:00 a. m. · hora Colombia</div>
   <button class="btn-act" id="actualizar">Actualizar</button>
+  <div class="credito" id="credito"></div>
 </header>
 
 <nav id="tabs">
@@ -192,11 +220,14 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
   <h2>Hoy en el sometimiento <small id="hoyFecha" style="font:600 .8rem Inter;color:var(--muted)"></small></h2>
   <div id="senales"></div>
   <div class="rejilla" id="hoyLista"><div class="card"><small>Buscando las noticias de hoy…</small></div></div>
+  <h3>Fotos de hoy</h3>
+  <div class="galeria" id="galeria"></div>
   <div id="videos"></div>
 </section>
 
 <!-- LO QUE DICE LA LEY -->
 <section id="laley">
+  <a class="banner" data-foto="laley" target="_blank" rel="noopener" style="display:none"></a>
   <h2>Lo que dice la ley de sometimiento</h2>
   <div class="card note">
     <strong>Antes de leer</strong>
@@ -307,6 +338,7 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
 
 <!-- INICIO -->
 <section id="inicio">
+  <a class="banner" data-foto="inicio" target="_blank" rel="noopener" style="display:none"></a>
   <div class="card note">
     <strong>¿Por qué esta app?</strong>
     <p>Por redes circulan videos cortos de los debates del Senado con títulos como “tremenda peinada”. Esos clips muestran solo un lado. Aquí está el contexto completo: qué se está votando, quién propone qué y qué dicen los que están en contra.</p>
@@ -333,6 +365,7 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
 
 <!-- JEP -->
 <section id="jep">
+  <a class="banner" data-foto="jep" target="_blank" rel="noopener" style="display:none"></a>
   <h2>La JEP: ¿recortar y cerrar?</h2>
   <div class="card">
     <h3>Qué es</h3>
@@ -370,6 +403,7 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
 
 <!-- SOMETIMIENTO -->
 <section id="sometimiento">
+  <a class="banner" data-foto="sometimiento" target="_blank" rel="noopener" style="display:none"></a>
   <h2>La ley de sometimiento</h2>
   <div class="card">
     <h3>La ficha</h3>
@@ -425,6 +459,7 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
 
 <!-- VOTACION -->
 <section id="votacion">
+  <a class="banner" data-foto="votacion" target="_blank" rel="noopener" style="display:none"></a>
   <h2>Cómo se votó, paso a paso</h2>
   <div class="card">
     <div class="vot"><div class="fila"><b>Senado · votación final (3 nov.)</b><span>57 sí · 24 no</span></div><div class="barra"><i class="si" data-w="70.4"></i><i class="no" data-w="29.6"></i></div></div>
@@ -468,6 +503,7 @@ details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.
 
 <!-- POSTURAS -->
 <section id="posturas">
+  <a class="banner" data-foto="posturas" target="_blank" rel="noopener" style="display:none"></a>
   <h2>Las dos posturas, lado a lado</h2>
   <p style="color:var(--muted)">Aquí no le decimos quién tiene la razón. Cada lado presenta su mejor argumento.</p>
 
@@ -743,14 +779,47 @@ async function cargarHoy(forzar){
   else lista.innerHTML=mostrar.map(n=>'<a class="nota'+(n.img?'':' sinfoto')+'" href="'+esc(n.l)+'" target="_blank" rel="noopener"><div class="img" style="background-image:url(\''+esc(n.img||'')+'\')"></div><div class="txt"><b>'+esc(n.t)+'</b><small>'+esc(n.src||'')+(n.f?' · '+hace(n.f):'')+'</small></div></a>').join('');
   const sen=(robot.senales||[]).slice(0,3);
   document.getElementById('senales').innerHTML=sen.length?'<div class="card note"><strong><span class="pulso"></span>Lo último del trámite</strong><ul>'+sen.map(x=>'<li><span class="tag">'+esc(PASOS[x.paso]||x.paso)+'</span> <a href="'+esc(x.enlace)+'" target="_blank" rel="noopener" style="color:var(--a)">'+esc(x.titulo)+'</a></li>').join('')+'</ul></div>':'';
-  const v=(robot.videos||[]).slice(0,4);
-  document.getElementById('videos').innerHTML=v.length?'<h3>Videos</h3><div class="card">'+v.map(x=>'<a class="vid" href="https://www.youtube.com/watch?v='+esc(x.id)+'" target="_blank" rel="noopener"><div style="background-image:url(\'https://i.ytimg.com/vi/'+esc(x.id)+'/mqdefault.jpg\')"></div><span><b style="font-size:.9rem">'+esc(x.titulo)+'</b><br><small>'+esc(x.canal||'')+'</small></span></a>').join('')+'</div>':'';
+  pintarFotos(robot.noticias||[]);
+  const v=(robot.videos||[]).filter(x=>ROBOT_TEMA.test(x.titulo)).slice(0,6);
+  document.getElementById('videos').innerHTML=v.length?'<h3>Videos de los noticieros</h3><div class="videos">'+v.map(x=>'<div><div class="yt'+(x.corto?' corto':'')+'" data-id="'+esc(x.id)+'" style="background-image:url(\'https://i.ytimg.com/vi/'+esc(x.id)+'/hqdefault.jpg\')"></div><b>'+esc(x.titulo)+'</b><small style="color:var(--muted)">'+esc(x.canal||'')+(x.fecha?' · '+hace(x.fecha):'')+'</small></div>').join('')+'</div>':'';
+  document.querySelectorAll('.yt').forEach(el=>el.onclick=()=>{if(el.classList.contains('play'))return;el.classList.add('play');el.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+el.dataset.id+'?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="Video"></iframe>'});
   document.getElementById('stamp').textContent='Actualizado '+horaCO(new Date())+' · hora Colombia';
 }
 const bAct=document.getElementById('actualizar');
 bAct.onclick=async()=>{bAct.classList.add('girando');bAct.textContent='Actualizando…';cargadas={};await cargarHoy(true);
   if(document.getElementById('noticias').classList.contains('on'))await loadNews(true);bAct.classList.remove('girando');bAct.textContent='Actualizar'};
 cargarHoy();
+
+// ---------- Fotos reales de los medios ----------
+const FILTROS={
+  laley:/ley de sometimiento|rebaja|pena|cancino/i,
+  inicio:/sometimiento|paz total|de la espriella/i,
+  jep:/\bjep\b|jurisdicci[oó]n especial|timochenko|alape/i,
+  sometimiento:/sometimiento|cancino|cadavid|brice[nñ]o/i,
+  votacion:/aprob|votaci[oó]n|senado|c[aá]mara|plenaria|congreso/i,
+  posturas:/choque|debate|oposici[oó]n|pacto hist[oó]rico|demanda|rechaz/i};
+let fotosHeader=[],iFoto=0,timerFoto;
+function pintarFotos(noticias){
+  const con=noticias.filter(n=>n.imagen&&ROBOT_TEMA.test(n.titulo)).sort((a,b)=>new Date(b.fecha)-new Date(a.fecha));
+  if(!con.length)return;
+  // fondo del encabezado: las 6 fotos más recientes, rotando
+  fotosHeader=con.slice(0,6);const f=document.getElementById('fondo');
+  f.innerHTML=fotosHeader.map(n=>'<div style="background-image:url(\''+esc(n.imagen)+'\')"></div>').join('');
+  const capas=[...f.children];iFoto=0;
+  const mostrar=()=>{capas.forEach((c,i)=>c.classList.toggle('on',i===iFoto));const n=fotosHeader[iFoto];
+    document.getElementById('credito').innerHTML='Foto: <a href="'+esc(n.enlace)+'" target="_blank" rel="noopener">'+esc(n.fuente||'medio')+'</a> · '+esc(n.titulo.slice(0,80))+(n.titulo.length>80?'…':'');
+    iFoto=(iFoto+1)%capas.length};
+  clearInterval(timerFoto);mostrar();if(capas.length>1)timerFoto=setInterval(mostrar,7000);
+  // galería de fotos de hoy
+  document.getElementById('galeria').innerHTML=con.slice(0,10).map(n=>'<a href="'+esc(n.enlace)+'" target="_blank" rel="noopener" style="background-image:url(\''+esc(n.imagen)+'\')"><span>'+esc(n.titulo)+'<br><small style="opacity:.8;font-weight:600">'+esc(n.fuente||'')+' · '+hace(n.fecha)+'</small></span></a>').join('');
+  // una foto distinta y relacionada arriba de cada pestaña
+  const usadas=new Set();
+  document.querySelectorAll('.banner[data-foto]').forEach(b=>{
+    const re=FILTROS[b.dataset.foto];let n=con.find(x=>re.test(x.titulo)&&!usadas.has(x.imagen))||con.find(x=>!usadas.has(x.imagen));
+    if(!n)return;usadas.add(n.imagen);b.href=n.enlace;b.style.display='block';
+    b.innerHTML='<div style="background-image:url(\''+esc(n.imagen)+'\')"></div><span>'+esc(n.titulo)+'<small>Foto: '+esc(n.fuente||'')+' · '+hace(n.fecha)+'</small></span>';
+  });
+}
 
 // ---------- Barras de votación ----------
 function barras(){document.querySelectorAll('.barra i').forEach(i=>i.style.width=i.dataset.w+'%')}
