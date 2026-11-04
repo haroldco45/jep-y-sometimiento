@@ -125,6 +125,18 @@ form input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(
 .dest{font-size:.84rem;color:var(--muted)}
 .acciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .btn.sec{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+details.art{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+details.art summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:800;display:flex;justify-content:space-between;gap:10px;align-items:center}
+details.art summary::-webkit-details-marker{display:none}
+details.art summary::after{content:"+";font:900 1.3rem Inter;color:var(--gold);transition:transform .25s}
+details.art[open] summary::after{transform:rotate(45deg)}
+details.art .cuerpo{padding:0 16px 14px;animation:fade .25s ease}
+details.art small.n{display:block;font-weight:600;color:var(--muted);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}
+.cambio{display:inline-block;font-size:.7rem;font-weight:800;padding:2px 7px;border-radius:99px;background:var(--b-soft);color:var(--b);margin-left:4px}
+.resumen{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.resumen div{background:var(--navy);color:#fff;border-radius:14px;padding:14px}
+.resumen b{display:block;font:900 1.5rem Merriweather,serif;color:var(--gold)}
+.resumen span{font-size:.82rem;opacity:.9}
 #tema{position:absolute;right:12px;top:12px;z-index:2;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:99px;padding:6px 10px;cursor:pointer;font-size:.85rem}
 </style>
 </head>
@@ -140,6 +152,7 @@ form input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(
 
 <nav id="tabs">
   <button data-t="hoy" class="on">Hoy</button>
+  <button data-t="laley">Lo que dice la ley</button>
   <button data-t="inicio">Inicio</button>
   <button data-t="jep">La JEP</button>
   <button data-t="sometimiento">Sometimiento</button>
@@ -171,10 +184,125 @@ form input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(
     <p>La lista nominal todavía no se ha publicado. Queda en el acta de la plenaria y en la Gaceta del Congreso. Usted puede pedirla ya con un derecho de petición que sale desde esta app.</p>
     <a class="btn" href="#" data-go="votacion">Ver votaciones y pedir la lista</a>
   </div>
+  <div class="card">
+    <strong>¿Qué dice la ley?</strong>
+    <p>Rebajas de hasta 50 % para rasos y 30 % para cabecillas, entrega total de bienes, sin suspender capturas ni extradiciones, y sin beneficios para quien reclutó menores.</p>
+    <a class="btn" href="#" data-go="laley">Leer la ley explicada</a>
+  </div>
   <h2>Hoy en el sometimiento <small id="hoyFecha" style="font:600 .8rem Inter;color:var(--muted)"></small></h2>
   <div id="senales"></div>
   <div class="rejilla" id="hoyLista"><div class="card"><small>Buscando las noticias de hoy…</small></div></div>
   <div id="videos"></div>
+</section>
+
+<!-- LO QUE DICE LA LEY -->
+<section id="laley">
+  <h2>Lo que dice la ley de sometimiento</h2>
+  <div class="card note">
+    <strong>Antes de leer</strong>
+    <p>El texto oficial todavía no se ha publicado en la Gaceta del Congreso. Este resumen sale del texto aprobado en comisiones el 21 de octubre y de los cambios que hicieron las plenarias, según explicaron el ministro de Justicia Iván Cancino y los ponentes. Donde la plenaria cambió algo, lo marcamos. Cuando salga el texto oficial, lo comparamos punto por punto.</p>
+  </div>
+
+  <div class="resumen">
+    <div><b>50 %</b><span>rebaja máxima para integrantes rasos</span></div>
+    <div><b>30 %</b><span>rebaja máxima para cabecillas</span></div>
+    <div><b>10 años</b><span>de cárcel mínima para quien tuvo mando</span></div>
+    <div><b>4 años</b><span>dura la ley desde que se publique</span></div>
+  </div>
+
+  <details class="art" open><summary><span><small class="n">1</small>Qué es y para quién</span></summary><div class="cuerpo">
+    <ul>
+      <li>Crea un camino para que integrantes de grupos armados ilegales y estructuras criminales se entreguen a la justicia ordinaria a cambio de rebajas de pena, siempre que cumplan condiciones.</li>
+      <li>Modifica, adiciona y prorroga la Ley 418 de 1997 de orden público. Es el PL 296 de 2026 Senado y 433 de 2026 Cámara.</li>
+      <li>Reemplaza la “Paz Total”: no hay mesas de negociación, ni gestores de paz, ni reconocimiento de estatus político a los grupos.</li>
+      <li>El sometimiento puede ser individual o colectivo (de toda una organización).</li>
+    </ul>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">2</small>Las rebajas de pena</span></summary><div class="cuerpo">
+    <ul>
+      <li><b>Integrantes rasos:</b> rebaja de hasta el 50 % de la pena, si aportan a la verdad y a la reparación.</li>
+      <li><b>Cabecillas o quienes tuvieron mando:</b> rebaja de hasta el 30 % y una condena mínima de 10 años de prisión.</li>
+      <li><b>Reclutamiento de menores:</b> quienes hayan sido condenados o sean responsables de meter niños, niñas o adolescentes a estas estructuras quedan sin beneficios. <span class="cambio">Cambió en plenaria</span> En comisiones se les permitía una rebaja de hasta 10 % con 10 años mínimos de cárcel.</li>
+      <li><b>Lavado de activos y testaferrato:</b> deben haber pagado al menos 6 años de pena para acceder al beneficio. <span class="cambio">Más duro en el Senado</span></li>
+      <li>Las rebajas no son automáticas: si la persona incumple, las pierde.</li>
+    </ul>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">3</small>Lo que tienen que entregar y cumplir</span></summary><div class="cuerpo">
+    <ul>
+      <li>Entregar las armas y la <b>totalidad de los bienes</b>, con un inventario completo. No se les devuelve ningún porcentaje.</li>
+      <li>Contar la verdad completa y reconocer su responsabilidad.</li>
+      <li>Dar información sobre las redes del grupo, sus fuentes de plata, sus colaboradores y sus nexos con políticos y corrupción.</li>
+      <li>Decir dónde están las personas desaparecidas y secuestradas, o sus restos.</li>
+      <li>Entregar las coordenadas de zonas con minas antipersonal y otros explosivos.</li>
+      <li>Dejar todas las actividades ilegales, incluida la minería ilegal, y entregar la maquinaria e insumos.</li>
+      <li>Comprometerse a no volver a delinquir, reparar a las víctimas y hacer trabajos restaurativos.</li>
+    </ul>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">4</small>Lo que NO da la ley</span></summary><div class="cuerpo">
+    <ul>
+      <li>No suspende las órdenes de captura.</li>
+      <li>No suspende las extradiciones. Quien esté pedido en extradición no recibe beneficios.</li>
+      <li>No da estatus político ni reconocimiento como actor del conflicto.</li>
+      <li>No hay excarcelaciones: la reclusión queda a cargo del INPEC.</li>
+      <li>Quien ya recibió beneficios en otras desmovilizaciones no entra automáticamente ni puede sumar beneficios.</li>
+    </ul>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">5</small>Cómo es el paso a paso</span></summary><div class="cuerpo">
+    <ol>
+      <li><b>Etapa con el Gobierno (hasta 3 meses, prorrogables una vez):</b> la organización pide someterse, se fija una hoja de ruta y se verifica que cumpla.</li>
+      <li><b>Lista de integrantes:</b> el grupo entrega al Ministerio de Justicia una lista certificada por quien tenga el mando, con el nombre, el rol y la fecha aproximada de ingreso de cada uno.</li>
+      <li><b>Verificación de cada persona (hasta 30 días hábiles, prorrogables una vez):</b> se cruza con Fiscalía, Fuerza Pública, DNI, INPEC, Migración Colombia, ARN y JEP. Hace falta al menos una prueba adicional de que la persona sí pertenece al grupo.</li>
+      <li><b>Etapa judicial:</b> los jueces definen la responsabilidad de cada uno, la pena y la rebaja que le corresponde.</li>
+    </ol>
+    <p>Los menores de 18 años no pueden ir en la lista: se entregan de inmediato al ICBF. Meter a alguien que no es del grupo puede costarle los beneficios a quien firmó la lista y acarrear un proceso penal.</p>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">6</small>Libertad condicional</span></summary><div class="cuerpo">
+    <ul>
+      <li>Según el ministro de Justicia, la ley fija un límite de 6 años para acceder a la libertad condicional. <span class="cambio">Cambió en plenaria</span></li>
+      <li>En el texto de comisiones, la libertad condicional llegaba al cumplir cuatro quintas partes de la pena, o dos quintas partes si la persona daba información extraordinaria sobre desaparecidos o sobre nexos políticos y corrupción.</li>
+      <li>Quien incumpla sale del proceso y vuelve de inmediato a la justicia ordinaria, sin rebaja.</li>
+    </ul>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">7</small>Las víctimas</span></summary><div class="cuerpo">
+    <ul>
+      <li>Tienen derecho a trato digno, a participar en el proceso, a aportar pruebas, a apelar y a tener abogado gratis por medio de la Defensoría del Pueblo.</li>
+      <li>Deben ser informadas de cómo va la investigación y de las audiencias.</li>
+      <li>Las víctimas de violencia sexual tienen garantías de privacidad, no pueden ser careadas con el agresor y reciben apoyo psicosocial.</li>
+      <li>Los planes de reparación y de trabajo restaurativo los aprueba el juez después de escuchar a las víctimas.</li>
+    </ul>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">8</small>Trabajos restaurativos y lugares de reclusión</span></summary><div class="cuerpo">
+    <ul>
+      <li>Trabajos concretos y medibles: reconstruir infraestructura de las comunidades, ayudar al desminado, buscar desaparecidos, erradicar a mano cultivos ilícitos y recuperar ríos y ecosistemas dañados por la minería ilegal.</li>
+      <li>Colonias agrícolas de reclusión dedicadas a agricultura sostenible, pesca artesanal y restauración ambiental.</li>
+      <li>En territorios indígenas y de comunidades negras todo esto requiere consulta previa.</li>
+    </ul>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">9</small>Plata, bienes y control</span></summary><div class="cuerpo">
+    <ul>
+      <li>Se crea una unidad especial de la Fiscalía, con personal del CTI y la Dijín, para investigar a los integrantes de los grupos sometidos.</li>
+      <li>La SAE debe priorizar los predios rurales en extinción de dominio para financiar la transformación de los territorios y rendir informes cada seis meses.</li>
+      <li>Los costos del sometimiento los asume el Ministerio de Justicia; municipios y departamentos no cargan con nuevos gastos. <span class="cambio">Cambió en plenaria</span></li>
+      <li>Se eliminó el artículo 25, que daba al Ministerio del Interior gastos reservados de seguridad con recursos de Fonsecon. <span class="cambio">Eliminado</span></li>
+      <li>El Gobierno debe presentar cada año al Congreso un informe público de resultados.</li>
+    </ul>
+  </div></details>
+
+  <details class="art"><summary><span><small class="n">10</small>Cuánto dura y qué sigue</span></summary><div class="cuerpo">
+    <ul>
+      <li>Rige por 4 años desde su publicación. <span class="cambio">Antes 10</span></li>
+      <li>Faltan la firma del presidente y la publicación en el Diario Oficial.</li>
+      <li>La oposición anunció que podría demandarla ante la Corte Constitucional por el presunto vicio de trámite en la Cámara.</li>
+    </ul>
+  </div></details>
 </section>
 
 <!-- INICIO -->
@@ -467,6 +595,9 @@ form input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(
       <li><a href="https://www.eltiempo.com/politica/congreso/ley-de-sometimiento-senado-aprobo-el-proyecto-y-camara-debate-entre-acoger-el-mismo-texto-o-apuntarle-a-una-conciliacion-in-extremis-3598212" target="_blank" rel="noopener">El Tiempo: mismo texto, sin conciliación</a></li>
       <li><a href="https://www.infobae.com/colombia/2026/11/04/congreso-aprobo-la-ley-de-sometimiento-de-abelardo-de-la-espriella-asi-seran-las-rebajas-de-penas-para-criminales/" target="_blank" rel="noopener">Infobae: así quedaron las rebajas de penas</a></li>
       <li><a href="https://www.infobae.com/colombia/2026/11/04/el-senado-de-la-republica-aprobo-la-ley-de-sometimiento-y-hay-ultimatum-para-los-criminales-no-se-va-a-devolver-dinero/" target="_blank" rel="noopener">Infobae: lo que dijeron Blel y Hernández</a></li>
+      <li><a href="https://www.vanguardia.com/politica/2026/10/23/ley-de-sometimiento-avanza-en-su-tramite-en-el-congreso-que-ha-cambiado-en-el-proyecto/" target="_blank" rel="noopener">Vanguardia: el articulado aprobado en comisiones</a></li>
+      <li><a href="https://www.elespectador.com/politica/ley-de-sometimiento-de-de-la-espriella-termina-tramite-en-congreso-y-va-a-sancion/" target="_blank" rel="noopener">El Espectador: lo que dijo MinJusticia tras la aprobación</a></li>
+      <li><a href="https://www.semana.com/politica/articulo/minjusticia-defendio-aprobacion-de-la-ley-de-sometimiento-en-el-senado-se-trata-de-eso-de-construir-sobre-la-diferencia/202646/" target="_blank" rel="noopener">Semana: inventario de bienes y libertad condicional</a></li>
       <li><a href="https://senado.gov.co/index.php/participacion/contactenos" target="_blank" rel="noopener">Senado: canales para derechos de petición</a></li>
       <li><a href="https://www.camara.gov.co/nuevos-canales-de-comunicacion-para-una-atencion-mas-eficiente-a-la-ciudadania/" target="_blank" rel="noopener">Cámara: correos de la Secretaría General</a></li>
       <li><a href="https://www.semana.com/confidenciales/articulo/senador-rafael-nieto-endurece-postura-frente-a-salvacion-nacional-a-enrique-gomez-no-hay-nada-que-responderle-no-vale-la-pena/202635/" target="_blank" rel="noopener">Semana: Rafael Nieto vs. Enrique Gómez</a></li>
