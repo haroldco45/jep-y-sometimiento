@@ -1,0 +1,29 @@
+name: Fotos para flyer
+on:
+  push:
+    branches: [flyer-fotos]
+    paths: ['.github/workflows/fotos-flyer.yml']
+permissions:
+  contents: write
+jobs:
+  fotos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bajar fotos reales
+        run: |
+          mkdir -p flyer-fotos
+          node -e '
+          const fs=require("fs");const d=JSON.parse(fs.readFileSync("noticias.json","utf8"));
+          const re=/sometimiento|paz total|de la espriella|cancino|congreso|senado|c[aá]mara/i;
+          const ns=d.noticias.filter(n=>n.imagen&&re.test(n.titulo)).sort((a,b)=>new Date(b.fecha)-new Date(a.fecha)).slice(0,14);
+          (async()=>{const lista=[];let i=0;const vistos=new Set();
+          for(const n of ns){const base=n.imagen.split("?")[0];if(vistos.has(base))continue;vistos.add(base);
+            try{const r=await fetch(n.imagen,{headers:{"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/130 Safari/537.36",Referer:n.enlace}});
+            if(!r.ok)continue;const b=Buffer.from(await r.arrayBuffer());if(b.length<15000)continue;
+            i++;fs.writeFileSync("flyer-fotos/f"+i+".jpg",b);lista.push({f:"f"+i+".jpg",fuente:n.fuente,titulo:n.titulo});}catch(e){}}
+          fs.writeFileSync("flyer-fotos/lista.json",JSON.stringify(lista,null,1));console.log(lista.length)})()'
+      - run: |
+          git config user.name "robot-vibras"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add flyer-fotos && git commit -m "Fotos para flyer" && git push
