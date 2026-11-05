@@ -1,5 +1,5 @@
 // JEP y Sometimiento — Vibras Positivas HM
-const CACHE = 'jep-sometimiento-v5';
+const CACHE = 'jep-sometimiento-v6';
 const ARCHIVOS = ['./', './index.html', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', e => {

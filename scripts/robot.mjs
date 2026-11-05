@@ -17,7 +17,7 @@ const DIAS_VIDEOS = 60;
 const MAX_FOTOS_POR_CORRIDA = 60;
 
 // Qué cuenta como "del tema"
-export const TEMA = /sometimiento|ley 418|orden p[uú]blico|paz total|\bjep\b|jurisdicci[oó]n especial para la paz|acogimiento|proyecto (de ley )?433|pl 433|iv[aá]n cancino|hern[aá]n cadavid|daniel brice[nñ]o|enrique g[oó]mez/i;
+export const TEMA = /sometimiento|ley 2640|ley 418|orden p[uú]blico|paz total|\bjep\b|jurisdicci[oó]n especial para la paz|acogimiento|proyecto (de ley )?433|pl 433|iv[aá]n cancino|hern[aá]n cadavid|daniel brice[nñ]o|enrique g[oó]mez/i;
 // Señales de lo que sigue
 const SENALES = [
   { paso: 'sancion', re: /sancion[oó]|sancionad[ao]|ya es ley|firm[oó] la ley|nueva ley/i },
@@ -27,7 +27,7 @@ const SENALES = [
   { paso: 'sometidos', re: /se someti|primer(os)? grupo|primeros sometidos|se acogi/i },
 ];
 
-const Q = '"ley de sometimiento" OR "sometimiento a la justicia" Colombia';
+const Q = '"ley de sometimiento" OR "ley 2640" OR "sometimiento a la justicia" Colombia';
 const TEMAS = [
   { tema: 'Sometimiento', q: Q, dias: 7 },
   { tema: 'Sometimiento', q: '"ley de sometimiento" sanción OR sancionó OR "De la Espriella"', dias: 7 },
