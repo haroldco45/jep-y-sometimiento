@@ -7,7 +7,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import sharp from 'sharp';
 
-const VERSION = 'ya-es-ley-2640-v1';
+const VERSION = 'ya-es-ley-2640-v2';
 const URL_APP = 'jep-y-sometimiento.netlify.app';
 const UA = 'VibrasPositivasHM-robot/1.0 (https://github.com/haroldco45/jep-y-sometimiento)';
 
@@ -89,8 +89,8 @@ const flyerSvg = `<svg width="1080" height="1350" xmlns="http://www.w3.org/2000/
   <defs>
     <linearGradient id="v" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0a1d31" stop-opacity=".93"/>
-      <stop offset=".42" stop-color="#0a1d31" stop-opacity=".7"/>
-      <stop offset=".62" stop-color="#0a1d31" stop-opacity=".55"/>
+      <stop offset=".42" stop-color="#0a1d31" stop-opacity=".8"/>
+      <stop offset=".62" stop-color="#0a1d31" stop-opacity=".65"/>
       <stop offset="1" stop-color="#0a1d31" stop-opacity=".95"/></linearGradient>
   </defs>
   <rect width="1080" height="1350" fill="url(#v)"/>
@@ -115,7 +115,7 @@ const flyerSvg = `<svg width="1080" height="1350" xmlns="http://www.w3.org/2000/
   <rect y="1196" width="1080" height="154" fill="#c99a2e"/>
   <text x="540" y="1268" text-anchor="middle" font-family="${SANS}" font-weight="700" font-size="50" fill="#1b1405">${URL_APP}</text>
   <text x="540" y="1312" text-anchor="middle" font-family="${SANS}" font-size="25" fill="#1b1405">Se actualiza sola cada 30 minutos · Noticias, la ley explicada y derecho de petición</text>
-  <text x="1060" y="1182" text-anchor="end" font-family="${SANS}" font-size="16" fill="#fff" fill-opacity=".85">${esc(foto.credito)}</text>
+  <text x="1060" y="40" text-anchor="end" font-family="${SANS}" font-size="16" fill="#fff" fill-opacity=".8">${esc(foto.credito)}</text>
 </svg>`;
 const ancho = 300;
 const cel1 = await sharp(await celular('assets/shot-hoy.png', ancho)).rotate(-5, { background: { r: 0, g: 0, b: 0, alpha: 0 } }).toBuffer();
